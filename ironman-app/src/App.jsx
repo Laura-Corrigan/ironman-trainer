@@ -13,7 +13,7 @@ const A = {
 
 const RACE = new Date(2026,6,12);
 const DC = {swim:"#4ECDC4",bike:"#E8B44A",run:"#E8637A",strength:"#B68AE8",brick:"#6DC8A8",rest:"#555"};
-const DI = {swim:"\u{1F3CA}",bike:"\u{1F6B4}",run:"\u{1F3C3}",strength:"\u{1F3CB}\uFE0F",brick:"\u{1F517}",rest:"\u{1F634}"};
+const DI = {swim:"🏊",bike:"🚴",run:"🏃",strength:"🏋️",brick:"🔗",rest:"😴"};
 
 const T = {
   bg:"#110F18", card:"#1A1722", cardAlt:"#221F2D", border:"#2E2A3A",
@@ -170,7 +170,7 @@ structure:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Full rest. Recovery week — this is where your body actually gets fitter. Sleep is your best friend.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
 {day:"Tue",disc:"swim",title:"Easy swim",desc:"No structure, no clock. Just swim easy for 30 minutes.",duration:30,distance:1.5,equipment:"Pool",rpe:"3/10",
 structure:[{block:"Easy swim",time:"30min",detail:"1500m at whatever pace feels comfortable. Mix up your strokes. Practice a few drills if you want. No pressure."}],adjust:null},
-{day:"Wed",disc:"bike",title:"\u23F1 Bike power test",desc:"The first big test — finding out how much stronger you've got on the bike. Do this on the turbo so the numbers are consistent.",duration:55,distance:null,equipment:"Turbo + Swift",rpe:"10/10 for 20min",
+{day:"Wed",disc:"bike",title:"⏱ Bike power test",desc:"The first big test — finding out how much stronger you've got on the bike. Do this on the turbo so the numbers are consistent.",duration:55,distance:null,equipment:"Turbo + Swift",rpe:"10/10 for 20min",
 structure:[
   {block:"Warm-up",time:"15min",detail:"10 minutes easy spinning, then 3 x 1 minute fast spin (high cadence, light resistance), then 2 minutes steady"},
   {block:"THE TEST",time:"20min",detail:"20 minutes, as hard as you can sustain. Go all-out but pace it — start at around 172W and try to build if you can. Your average power for these 20 minutes, multiplied by 0.95, is your new bike fitness number. Record it in Strava"},
@@ -309,7 +309,7 @@ structure:[
 {week:8,phase:"Absorb",hrs:6,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Full rest. You've just finished the hardest training block. Book a massage if you can.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
 {day:"Tue",disc:"swim",title:"Easy swim",desc:"No structure. Just swim easy.",duration:30,distance:1.5,equipment:"Pool",rpe:"3/10",structure:[{block:"Easy",time:"30min",detail:"1500m easy, mixed strokes. No clock, no intervals. Just enjoy being in the water."}],adjust:null},
-{day:"Wed",disc:"bike",title:"\u23F1 Bike power test 2",desc:"Same test as Week 4. How much has your bike fitness improved over 7 weeks of structured turbo work?",duration:55,distance:null,equipment:"Turbo + Swift",rpe:"10/10",
+{day:"Wed",disc:"bike",title:"⏱ Bike power test 2",desc:"Same test as Week 4. How much has your bike fitness improved over 7 weeks of structured turbo work?",duration:55,distance:null,equipment:"Turbo + Swift",rpe:"10/10",
 structure:[
   {block:"Warm-up",time:"15min",detail:"Same as Week 4: 10 minutes easy, 3 x 1 minute fast spins, 2 minutes steady"},
   {block:"THE TEST",time:"20min",detail:"20 minutes all-out. Same protocol. Compare your average power to Week 4. Target: 185W+ average. If you hit that, your race power becomes 140-148W — that's comfortably sub-6 hour bike territory"},
@@ -362,7 +362,7 @@ structure:[{block:"Opener",time:"60min",detail:"Easy spinning with 3 x 3 minutes
 {day:"Thu",disc:"run",title:"Easy run opener",desc:"Stay loose.",duration:30,distance:5.5,equipment:"Easy route",rpe:"4/10",
 structure:[{block:"Easy",time:"30min",detail:"Easy jog with 4 x 30 seconds at half marathon pace. That's it."}],adjust:null},
 {day:"Fri",disc:"rest",title:"Rest before test",desc:"FULL REST. Eat plenty of carbs today (8-10g per kg of bodyweight = roughly 650-800g of carbs). Drink lots of water. Lay out all your kit for tomorrow. Visualise the day.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Sat",disc:"brick",title:"\u23F1 HALF-DISTANCE TEST",desc:"The most important training day of the plan. Half Ironman distance, full race effort. This tells you everything about July 12.",duration:330,distance:113,equipment:"Pool → Trek → Road",rpe:"9/10",
+{day:"Sat",disc:"brick",title:"⏱ HALF-DISTANCE TEST",desc:"The most important training day of the plan. Half Ironman distance, full race effort. This tells you everything about July 12.",duration:330,distance:113,equipment:"Pool → Trek → Road",rpe:"9/10",
 structure:[
   {block:"Swim 1.9km",time:"~36-40min",detail:"In the pool. Pace yourself — aim for 1:53-2:00 per 100m. Don't sprint the first 200m"},
   {block:"Transition 1",time:"~4min",detail:"Get changed. Helmet on. Time it"},
@@ -417,7 +417,7 @@ structure:[{block:"Session",time:"135min",detail:"80 minutes easy, 40 minutes at
 {day:"Thu",disc:"run",title:"Course jog",desc:"Last session before race day.",duration:15,distance:2.5,equipment:"Race venue",rpe:"3/10",structure:[{block:"Easy",time:"15min",detail:"Easy jog on the run course. Note landmarks. Visualise yourself running strong through the finish."}],adjust:null},
 {day:"Fri",disc:"rest",title:"Pre-race rest",desc:"REST. Bike racked in transition. Gear bags checked. Race morning kit laid out. Gels taped to the top tube. Flat bottles ready. Early dinner — something you know works. Bed by 9pm.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
 {day:"Sat",disc:"rest",title:"Pre-race",desc:"10 minute jog only if you need to burn nervous energy. Otherwise full rest. Race briefing. High carb, low fibre dinner. Alarm set.",duration:10,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Sun",disc:"brick",title:"\u{1F3C1} RACE DAY — IRONMAN",desc:"3.8km swim \u2192 180km bike \u2192 42.2km run",duration:720,distance:226,equipment:"Everything",rpe:"Everything you've got",
+{day:"Sun",disc:"brick",title:"🏁 RACE DAY — IRONMAN",desc:"3.8km swim → 180km bike → 42.2km run",duration:720,distance:226,equipment:"Everything",rpe:"Everything you've got",
 structure:[
   {block:"Swim 3.8km",time:"1:12-1:18",detail:"Easy start — don't sprint off the line. Find your rhythm by 400m. Sight every 8-10 strokes. Hold 1:52-1:58 per 100m. Don't fight for position, your race is against the clock not other people"},
   {block:"Transition 1",time:"5:00",detail:"Stay calm. Wetsuit off. Helmet on. Shoes on. Go. Don't rush — smooth is fast"},
@@ -432,19 +432,18 @@ structure:[
 }
 
 const PLAN=genPlan();
-import { loadWorkoutData, saveCompleted, saveMetrics, saveRpe } from './lib/storage';
-
+const loadD=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(f))}catch{return f}};
+const saveD=(k,d)=>localStorage.setItem(k,JSON.stringify(d));
 const getCW=()=>{const n=new Date();return Math.max(0,PLAN.findIndex(w=>n>=w.startDate&&n<=w.endDate))};
 const fD=d=>d.toLocaleDateString("en-GB",{day:"numeric",month:"short"});
 const dU=()=>Math.max(0,Math.ceil((RACE-new Date())/864e5));
-const mH=m=>{if(!m)return"\u2014";const h=Math.floor(m/60),mn=m%60;return h>0?`${h}h ${mn}m`:`${mn}m`};
+const mH=m=>{if(!m)return"—";const h=Math.floor(m/60),mn=m%60;return h>0?`${h}h ${mn}m`:`${mn}m`};
 
 const S={card:{background:T.card,borderRadius:12,border:`1px solid ${T.border}`,overflow:"hidden"},cardAlt:{background:T.cardAlt,borderRadius:10,padding:"8px 10px"},badge:c=>({fontSize:10,fontWeight:500,padding:"2px 8px",borderRadius:20,background:c+"22",color:c,border:`1px solid ${c}33`}),btn:{background:"none",border:`1px solid ${T.border}`,borderRadius:8,cursor:"pointer",fontFamily:"inherit",color:T.text}};
 
 export default function App(){
-  const[tab,setTab]=useState("plan");const[cw,setCw]=useState(getCW());const[comp,setComp]=useState({});const[met,setMet]=useState({});const[rpe,setRpe]=useState({});const[sel,setSel]=useState(null);const[modal,setModal]=useState(null);const[loaded,setLoaded]=useState(false);
-  useEffect(()=>{loadWorkoutData().then(d=>{setComp(d.completed);setMet(d.metrics);setRpe(d.rpe);setLoaded(true);})},[]);
-  useEffect(()=>{if(loaded)saveCompleted(comp)},[comp,loaded]);useEffect(()=>{if(loaded)saveMetrics(met)},[met,loaded]);useEffect(()=>{if(loaded)saveRpe(rpe)},[rpe,loaded]);
+  const[tab,setTab]=useState("plan");const[cw,setCw]=useState(getCW());const[comp,setComp]=useState(()=>loadD("im5-c",{}));const[met,setMet]=useState(()=>loadD("im5-m",{}));const[rpe,setRpe]=useState(()=>loadD("im5-r",{}));const[sel,setSel]=useState(null);const[modal,setModal]=useState(null);
+  useEffect(()=>{saveD("im5-c",comp)},[comp]);useEffect(()=>{saveD("im5-m",met)},[met]);useEffect(()=>{saveD("im5-r",rpe)},[rpe]);
   const tog=useCallback((wi,di)=>{const k=`${wi}-${di}`;setComp(p=>{const n={...p};n[k]?delete n[k]:n[k]=Date.now();return n})},[]);
   const w=PLAN[cw];const tc=Object.keys(comp).length;const tw=PLAN.reduce((a,w)=>a+w.days.filter(d=>d.disc!=="rest").length,0);
   const ws=useMemo(()=>{if(!w)return{};const s={swim:0,bike:0,run:0,strength:0,brick:0,tMin:0,tDist:0,done:0,total:0};w.days.forEach((d,i)=>{if(d.disc==="rest")return;s.total++;s.tMin+=d.duration||0;s.tDist+=d.distance||0;if(d.disc in s)s[d.disc]+=d.duration||0;if(comp[`${cw}-${i}`])s.done++});return s},[w,cw,comp]);
@@ -457,11 +456,11 @@ export default function App(){
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
     <style>{`*{box-sizing:border-box}::-webkit-scrollbar{display:none}input,textarea,select{color:${T.text};background:${T.cardAlt};border:1px solid ${T.border};border-radius:8px;padding:7px 8px;font-family:inherit;font-size:13px;width:100%}button:active{opacity:0.8}`}</style>
     <div style={{padding:"1.25rem 1rem 0.75rem",textAlign:"center"}}>
-      <div style={{fontFamily:"'Space Mono',monospace",fontSize:9,letterSpacing:3,textTransform:"uppercase",color:T.textDim}}>Ironman \u00B7 July 12 \u00B7 Finish strong</div>
+      <div style={{fontFamily:"'Space Mono',monospace",fontSize:9,letterSpacing:3,textTransform:"uppercase",color:T.textDim}}>Ironman · July 12 · Finish strong</div>
       <div style={{fontSize:36,fontWeight:500,lineHeight:1.1,marginTop:4,color:T.accent}}>{dU()}<span style={{fontSize:14,fontWeight:400,color:T.textMid,marginLeft:6}}>days to go</span></div>
       <div style={{display:"flex",gap:5,justifyContent:"center",marginTop:8,flexWrap:"wrap"}}>
-        <span style={S.badge(DC.bike)}>FTP {A.bike.ftp}\u2192{A.bike.ftpTarget}W</span>
-        <span style={S.badge(DC.swim)}>Pace 2:00\u21921:52</span>
+        <span style={S.badge(DC.bike)}>FTP {A.bike.ftp}→{A.bike.ftpTarget}W</span>
+        <span style={S.badge(DC.swim)}>Pace 2:00→1:52</span>
         <span style={S.badge(T.success)}>{Math.round(tc/Math.max(tw,1)*100)}% complete</span>
       </div>
     </div>
@@ -471,27 +470,27 @@ export default function App(){
 
     {tab==="plan"&&<div style={{padding:"1rem"}}>
       <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
-        <button onClick={()=>{setCw(Math.max(0,cw-1));setSel(null)}} disabled={cw===0} style={{...S.btn,width:34,height:34,borderRadius:"50%",fontSize:14}}>\u2190</button>
-        <div style={{textAlign:"center"}}><div style={{fontSize:15,fontWeight:500}}>Week {w.week} <span style={{fontWeight:400,fontSize:12,color:T.textMid}}>of 14</span></div><div style={{fontSize:10,color:T.textDim}}>{fD(w.startDate)} \u2013 {fD(w.endDate)} \u00B7 ~{w.hrs}hrs</div></div>
-        <button onClick={()=>{setCw(Math.min(13,cw+1));setSel(null)}} disabled={cw===13} style={{...S.btn,width:34,height:34,borderRadius:"50%",fontSize:14}}>\u2192</button>
+        <button onClick={()=>{setCw(Math.max(0,cw-1));setSel(null)}} disabled={cw===0} style={{...S.btn,width:34,height:34,borderRadius:"50%",fontSize:14}}>←</button>
+        <div style={{textAlign:"center"}}><div style={{fontSize:15,fontWeight:500}}>Week {w.week} <span style={{fontWeight:400,fontSize:12,color:T.textMid}}>of 14</span></div><div style={{fontSize:10,color:T.textDim}}>{fD(w.startDate)} – {fD(w.endDate)} · ~{w.hrs}hrs</div></div>
+        <button onClick={()=>{setCw(Math.min(13,cw+1));setSel(null)}} disabled={cw===13} style={{...S.btn,width:34,height:34,borderRadius:"50%",fontSize:14}}>→</button>
       </div>
       <div style={{display:"flex",alignItems:"flex-start",gap:6,marginBottom:8}}>
         <span style={S.badge(pc[w.phase]||"#666")}>{w.phase}</span>
         <span style={{fontSize:11,color:T.textMid,lineHeight:1.5}}>{w.phaseDesc}</span>
       </div>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr",gap:5,marginBottom:10}}>
-        {[{l:"Time",v:mH(ws.tMin)},{l:"Dist",v:ws.tDist?`${Math.round(ws.tDist)}km`:"\u2014"},{l:"Done",v:`${ws.done}/${ws.total}`},{l:"RPE",v:weekRPE?`${weekRPE}/10`:"\u2014"}].map((s,i)=>(<div key={i} style={{...S.cardAlt,textAlign:"center"}}><div style={{fontSize:9,color:T.textDim,textTransform:"uppercase",letterSpacing:0.5}}>{s.l}</div><div style={{fontSize:14,fontWeight:500,marginTop:2}}>{s.v}</div></div>))}
+        {[{l:"Time",v:mH(ws.tMin)},{l:"Dist",v:ws.tDist?`${Math.round(ws.tDist)}km`:"—"},{l:"Done",v:`${ws.done}/${ws.total}`},{l:"RPE",v:weekRPE?`${weekRPE}/10`:"—"}].map((s,i)=>(<div key={i} style={{...S.cardAlt,textAlign:"center"}}><div style={{fontSize:9,color:T.textDim,textTransform:"uppercase",letterSpacing:0.5}}>{s.l}</div><div style={{fontSize:14,fontWeight:500,marginTop:2}}>{s.v}</div></div>))}
       </div>
       <div style={{display:"flex",flexDirection:"column",gap:5}}>
-        {w.days.map((d,di)=>{const ic=!!comp[`${cw}-${di}`];const dm=met[`${cw}-${di}`];const ie=sel===`${cw}-${di}`;const ks=d.title.includes("\u23F1")||d.title.includes("\u{1F3C1}")||d.title.includes("HALF");
+        {w.days.map((d,di)=>{const ic=!!comp[`${cw}-${di}`];const dm=met[`${cw}-${di}`];const ie=sel===`${cw}-${di}`;const ks=d.title.includes("⏱")||d.title.includes("🏁")||d.title.includes("HALF");
           return(<div key={di} style={{...S.card,border:ks?`1.5px solid ${DC[d.disc]||T.accent}`:ic?`1px solid ${T.success}33`:`1px solid ${T.border}`,opacity:d.disc==="rest"?0.55:1}}>
             <div onClick={()=>setSel(ie?null:`${cw}-${di}`)} style={{padding:"10px 12px",cursor:"pointer",display:"flex",alignItems:"center",gap:8}}>
               <div style={{width:36,height:36,borderRadius:"50%",background:(DC[d.disc]||"#666")+"22",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,flexShrink:0}}>{DI[d.disc]}</div>
               <div style={{flex:1,minWidth:0}}>
                 <div style={{display:"flex",alignItems:"center",gap:5}}><span style={{fontSize:9,fontWeight:500,color:DC[d.disc]||T.textMid,textTransform:"uppercase",letterSpacing:0.5}}>{d.day}</span><span style={{fontSize:12,fontWeight:500,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{d.title}</span></div>
-                <div style={{fontSize:10,color:T.textDim,marginTop:1}}>{d.disc!=="rest"?<>{mH(d.duration)}{d.distance?` \u00B7 ${d.distance}km`:""}{d.equipment?` \u00B7 ${d.equipment}`:""}</>:"Recovery"}</div>
+                <div style={{fontSize:10,color:T.textDim,marginTop:1}}>{d.disc!=="rest"?<>{mH(d.duration)}{d.distance?` · ${d.distance}km`:""}{d.equipment?` · ${d.equipment}`:""}</>:"Recovery"}</div>
               </div>
-              {d.disc!=="rest"&&<button onClick={e=>{e.stopPropagation();tog(cw,di)}} style={{width:24,height:24,borderRadius:"50%",border:`2px solid ${ic?T.success:T.border}`,background:ic?T.success:"transparent",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",color:ic?"#fff":"transparent",fontSize:12,flexShrink:0}}>{ic?"\u2713":""}</button>}
+              {d.disc!=="rest"&&<button onClick={e=>{e.stopPropagation();tog(cw,di)}} style={{width:24,height:24,borderRadius:"50%",border:`2px solid ${ic?T.success:T.border}`,background:ic?T.success:"transparent",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",color:ic?"#fff":"transparent",fontSize:12,flexShrink:0}}>{ic?"✓":""}</button>}
             </div>
             {ie&&<div style={{padding:"0 12px 12px",borderTop:`1px solid ${T.borderLight}`}}>
               {d.structure&&<div style={{marginTop:8}}>{d.structure.map((b,bi)=>(<div key={bi} style={{marginBottom:8}}><div style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}><span style={{fontSize:10,fontWeight:500,color:DC[d.disc]||T.accent,textTransform:"uppercase"}}>{b.block}</span><span style={{fontSize:10,color:T.textDim}}>{b.time}</span></div><div style={{fontSize:12,lineHeight:1.65,color:T.textMid}}>{b.detail}</div></div>))}</div>}
@@ -521,7 +520,7 @@ export default function App(){
       <div style={{...S.card,padding:12,marginBottom:8}}><div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:4}}>Coach notes</div><p style={{fontSize:12,lineHeight:1.65,margin:0}}>{w.phaseDesc}</p></div>
       <div style={{...S.card,padding:12,marginBottom:8}}>
         <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:6}}>Key benchmarks</div>
-        {[{wk:1,l:"Swim speed test (400m timed)"},{wk:4,l:"Bike power test 1 \u2014 target 178W+"},{wk:8,l:"Bike power test 2 \u2014 target 185W+"},{wk:10,l:"Half-distance test \u2014 under 5:45"},{wk:14,l:"\u{1F3C1} Race day \u2014 12:00-13:00"}].map((b,i)=>(<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"4px 0",fontSize:12,borderBottom:i<4?`1px solid ${T.borderLight}`:"none"}}><span style={{width:18,height:18,borderRadius:"50%",border:`1.5px solid ${cw>=b.wk-1?T.success:T.border}`,background:cw>=b.wk-1?T.successDim:"transparent",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,color:T.success,flexShrink:0}}>{cw>=b.wk-1?"\u2713":""}</span><span style={{color:T.textDim,fontSize:11}}>W{b.wk}</span><span>{b.l}</span></div>))}
+        {[{wk:1,l:"Swim speed test (400m timed)"},{wk:4,l:"Bike power test 1 — target 178W+"},{wk:8,l:"Bike power test 2 — target 185W+"},{wk:10,l:"Half-distance test — under 5:45"},{wk:14,l:"🏁 Race day — 12:00-13:00"}].map((b,i)=>(<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"4px 0",fontSize:12,borderBottom:i<4?`1px solid ${T.borderLight}`:"none"}}><span style={{width:18,height:18,borderRadius:"50%",border:`1.5px solid ${cw>=b.wk-1?T.success:T.border}`,background:cw>=b.wk-1?T.successDim:"transparent",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,color:T.success,flexShrink:0}}>{cw>=b.wk-1?"✓":""}</span><span style={{color:T.textDim,fontSize:11}}>W{b.wk}</span><span>{b.l}</span></div>))}
       </div>
       <div style={{...S.card,padding:12}}>
         <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:6}}>Equipment</div>
@@ -552,7 +551,7 @@ export default function App(){
 
     {tab==="profile"&&<div style={{padding:"1rem"}}>
       <div style={{...S.card,padding:12,marginBottom:8}}>
-        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:8}}><div style={{width:42,height:42,borderRadius:"50%",background:T.accent+"22",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:500,fontSize:15,color:T.accent}}>A</div><div><div style={{fontSize:15,fontWeight:500}}>{A.name}</div><div style={{fontSize:11,color:T.textMid}}>{A.age} \u00B7 {A.weight}kg \u00B7 {A.height}</div></div></div>
+        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:8}}><div style={{width:42,height:42,borderRadius:"50%",background:T.accent+"22",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:500,fontSize:15,color:T.accent}}>A</div><div><div style={{fontSize:15,fontWeight:500}}>{A.name}</div><div style={{fontSize:11,color:T.textMid}}>{A.age} · {A.weight}kg · {A.height}</div></div></div>
         <div style={{fontSize:12,lineHeight:1.6,color:T.textMid}}>Trained for Ironman Nov 2025 (didn't finish — bike accident). Been training since Jan 2026. Confident on bike after Mallorca. Uses Wahoo turbo with Swift feeding into Strava, Trek road bike outdoors, 50m pool, full gym.</div>
       </div>
       {[
@@ -567,7 +566,7 @@ export default function App(){
     </div>}
 
     {modal&&<div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.6)",display:"flex",alignItems:"flex-end",justifyContent:"center",zIndex:100}} onClick={()=>setModal(null)}><div onClick={e=>e.stopPropagation()} style={{background:T.card,borderRadius:"16px 16px 0 0",width:"100%",maxWidth:480,padding:18,maxHeight:"80vh",overflowY:"auto"}}>
-      <div style={{display:"flex",justifyContent:"space-between",marginBottom:12}}><div><div style={{fontSize:14,fontWeight:500}}>{modal.day.title}</div><div style={{fontSize:11,color:T.textMid}}>Log your workout</div></div><button onClick={()=>setModal(null)} style={{...S.btn,width:28,height:28,borderRadius:"50%",fontSize:14}}>\u2715</button></div>
+      <div style={{display:"flex",justifyContent:"space-between",marginBottom:12}}><div><div style={{fontSize:14,fontWeight:500}}>{modal.day.title}</div><div style={{fontSize:11,color:T.textMid}}>Log your workout</div></div><button onClick={()=>setModal(null)} style={{...S.btn,width:28,height:28,borderRadius:"50%",fontSize:14}}>✕</button></div>
       <MetricForm existing={met[`${modal.wi}-${modal.di}`]} onSave={data=>{setMet(p=>({...p,[`${modal.wi}-${modal.di}`]:data}));setModal(null)}}/>
     </div></div>}
   </div>);
