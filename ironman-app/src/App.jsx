@@ -443,7 +443,47 @@ const S={card:{background:T.card,borderRadius:12,border:`1px solid ${T.border}`,
 
 export default function App(){
   const[tab,setTab]=useState("plan");const[cw,setCw]=useState(getCW());const[comp,setComp]=useState(()=>loadD("im5-c",{}));const[met,setMet]=useState(()=>loadD("im5-m",{}));const[rpe,setRpe]=useState(()=>loadD("im5-r",{}));const[sel,setSel]=useState(null);const[modal,setModal]=useState(null);
+  const[strava,setStrava]=useState({connected:false,syncing:false,athlete:null,activities:[],lastSync:null,error:null});
   useEffect(()=>{saveD("im5-c",comp)},[comp]);useEffect(()=>{saveD("im5-m",met)},[met]);useEffect(()=>{saveD("im5-r",rpe)},[rpe]);
+
+  // Strava: check connection on load & handle OAuth redirect
+  useEffect(()=>{
+    const params=new URLSearchParams(window.location.search);
+    const stravaStatus=params.get('strava');
+    if(stravaStatus==='connected'){window.history.replaceState({},'','/');syncStrava();}
+    else if(stravaStatus==='denied'||stravaStatus==='error'){setStrava(s=>({...s,error:stravaStatus}));window.history.replaceState({},'','/');}
+    else{fetch('/api/strava/sync').then(r=>r.json()).then(d=>{if(d.connected)setStrava(s=>({...s,connected:true,athlete:d.athlete,activities:d.activities,lastSync:d.lastSync}))}).catch(()=>{})}
+  },[]);
+
+  const syncStrava=useCallback(async()=>{
+    setStrava(s=>({...s,syncing:true,error:null}));
+    try{
+      const r=await fetch('/api/strava/sync');const d=await r.json();
+      if(d.connected){
+        setStrava({connected:true,syncing:false,athlete:d.athlete,activities:d.activities,lastSync:d.lastSync,error:null});
+        if(d.activities?.length)autoMatchActivities(d.activities);
+      }else{setStrava(s=>({...s,syncing:false,error:'Not connected'}))}
+    }catch(e){setStrava(s=>({...s,syncing:false,error:e.message}))}
+  },[comp,met]);
+
+  const autoMatchActivities=useCallback((activities)=>{
+    const newComp={...comp};const newMet={...met};let matched=0;
+    activities.forEach(act=>{
+      if(!act.type||!act.date)return;
+      const actDate=new Date(act.date);
+      PLAN.forEach((week,wi)=>{
+        week.days.forEach((day,di)=>{
+          if(day.disc==="rest"||day.disc==="strength")return;
+          const dayDate=new Date(week.startDate);dayDate.setDate(dayDate.getDate()+di);
+          if(actDate.toDateString()===dayDate.toDateString()){
+            const ok=(act.type==="bike"&&(day.disc==="bike"||day.disc==="brick"))||(act.type==="run"&&(day.disc==="run"||day.disc==="brick"))||(act.type===day.disc);
+            if(ok){const key=`${wi}-${di}`;if(!newComp[key])newComp[key]=Date.now();newMet[key]={dur:act.duration||"",dist:act.distance||"",hr:act.avgHR||"",power:act.avgPower||"",pace:act.avgPace||"",cal:act.calories||"",notes:`Synced from ${act.source||"Strava"}: ${act.name}`,fromStrava:true};matched++}
+          }
+        });
+      });
+    });
+    if(matched>0){setComp(newComp);setMet(newMet)}
+  },[comp,met]);
   const tog=useCallback((wi,di)=>{const k=`${wi}-${di}`;setComp(p=>{const n={...p};n[k]?delete n[k]:n[k]=Date.now();return n})},[]);
   const w=PLAN[cw];const tc=Object.keys(comp).length;const tw=PLAN.reduce((a,w)=>a+w.days.filter(d=>d.disc!=="rest").length,0);
   const ws=useMemo(()=>{if(!w)return{};const s={swim:0,bike:0,run:0,strength:0,brick:0,tMin:0,tDist:0,done:0,total:0};w.days.forEach((d,i)=>{if(d.disc==="rest")return;s.total++;s.tMin+=d.duration||0;s.tDist+=d.distance||0;if(d.disc in s)s[d.disc]+=d.duration||0;if(comp[`${cw}-${i}`])s.done++});return s},[w,cw,comp]);
@@ -523,8 +563,25 @@ export default function App(){
         {[{wk:1,l:"Swim speed test (400m timed)"},{wk:4,l:"Bike power test 1 — target 178W+"},{wk:8,l:"Bike power test 2 — target 185W+"},{wk:10,l:"Half-distance test — under 5:45"},{wk:14,l:"🏁 Race day — 12:00-13:00"}].map((b,i)=>(<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"4px 0",fontSize:12,borderBottom:i<4?`1px solid ${T.borderLight}`:"none"}}><span style={{width:18,height:18,borderRadius:"50%",border:`1.5px solid ${cw>=b.wk-1?T.success:T.border}`,background:cw>=b.wk-1?T.successDim:"transparent",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,color:T.success,flexShrink:0}}>{cw>=b.wk-1?"✓":""}</span><span style={{color:T.textDim,fontSize:11}}>W{b.wk}</span><span>{b.l}</span></div>))}
       </div>
       <div style={{...S.card,padding:12}}>
-        <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:6}}>Equipment</div>
-        {Object.entries(A.equipment).map(([k,v],i)=><div key={i} style={{fontSize:12,color:T.textMid,padding:"3px 0"}}><span style={{color:T.text,fontWeight:500}}>{k==="bikeIndoor"?"Turbo":k==="bikeOutdoor"?"Road bike":k.charAt(0).toUpperCase()+k.slice(1)}:</span> {v}</div>)}
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
+          <div style={{fontSize:10,fontWeight:500,color:T.textMid}}>Strava</div>
+          {strava.connected&&<span style={{fontSize:9,color:T.success}}>Connected{strava.athlete?` — ${strava.athlete}`:""}</span>}
+        </div>
+        {!strava.connected?(
+          <div style={{textAlign:"center",padding:"8px 0"}}>
+            <div style={{fontSize:12,color:T.textMid,marginBottom:8,lineHeight:1.5}}>Connect Strava to auto-sync your turbo rides and runs. Bike and run workouts get ticked off and metrics filled in automatically.</div>
+            <button onClick={()=>window.location.href='/api/strava/auth'} style={{padding:"8px 20px",fontSize:12,fontWeight:500,border:"none",borderRadius:8,background:"#FC4C02",color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>Connect Strava</button>
+            {strava.error&&<div style={{fontSize:11,color:"#E85454",marginTop:6}}>Connection failed — try again</div>}
+          </div>
+        ):(
+          <div>
+            <div style={{display:"flex",gap:5,marginBottom:8}}>
+              <button onClick={syncStrava} disabled={strava.syncing} style={{...S.btn,flex:1,padding:"7px 0",fontSize:11,fontWeight:500}}>{strava.syncing?"Syncing...":"Sync now"}</button>
+            </div>
+            {strava.lastSync&&<div style={{fontSize:10,color:T.textDim}}>Last synced: {new Date(strava.lastSync).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}</div>}
+            {strava.activities?.length>0&&<div style={{fontSize:10,color:T.textMid,marginTop:4}}>{strava.activities.length} activities found — {strava.activities.filter(a=>a.isVirtual).length} from Swift/Turbo</div>}
+          </div>
+        )}
       </div>
     </div>}
 
