@@ -39,7 +39,7 @@ function genPlan() {
 // ═══ WEEK 1 (9.5hrs) ═══
 {week:1,phase:"Build I",hrs:9.5,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Full rest. Foam roll or stretch for 20 minutes if you fancy it.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim test + pace work",desc:"Finding out your current pace, then practising holding it.",duration:55,distance:2.2,equipment:"Pool",rpe:"6-7/10",
+{day:"Tue",disc:"swim",title:"Swim test + pace work",desc:"Finding out your current pace, then practising holding it.",duration:55,distance:1.8,equipment:"Pool",rpe:"6-7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy swimming — mix of front crawl and backstroke, take your time"},
   {block:"Test",time:"~7min",detail:"Swim 400m as fast as you can. Time it. This tells us your current pace per 100m — we'll use this number to set targets for the next 13 weeks"},
@@ -58,7 +58,7 @@ structure:[
   {block:"Main set",time:"25min",detail:"25 minutes at 5:05-5:25/km — this is comfortably hard. You could talk in short sentences but wouldn't want to. Don't speed up on hills, just hold the effort steady"},
   {block:"Wind down",time:"10min",detail:"Easy jog. At the end, do 4 x 20-second fast strides with a walk back between each"}
 ],adjust:"If your legs are heavy from yesterday's turbo, just run the whole thing easy. Consistency matters more than one hard session."},
-{day:"Fri",disc:"swim",title:"Swim — building distance",desc:"Pushing past 2km for the first time in a structured session.",duration:55,distance:2.4,equipment:"Pool",rpe:"5-6/10",
+{day:"Fri",disc:"swim",title:"Swim — building distance",desc:"Pushing past 2km for the first time in a structured session.",duration:55,distance:1.8,equipment:"Pool",rpe:"5-6/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"300m easy, whatever stroke feels good"},
   {block:"Main set A",time:"22min",detail:"4 x 200m at a comfortable pace (around 2:05-2:20 per 100m). Take 20 seconds rest between each"},
@@ -83,7 +83,7 @@ structure:[
 // ═══ WEEK 2 (10hrs) ═══
 {week:2,phase:"Build I",hrs:10,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Full rest. Check your Strava data from last week. Any aches? 20 minutes of yoga if you want.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim — holding pace",desc:"Longer reps at your target pace. The 300m efforts are the engine for improvement.",duration:60,distance:2.6,equipment:"Pool",rpe:"7/10",
+{day:"Tue",disc:"swim",title:"Swim — holding pace",desc:"Longer reps at your target pace. The 300m efforts are the engine for improvement.",duration:60,distance:1.9,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy mixing strokes"},
   {block:"Main set",time:"30min",detail:"3 x 300m at your target pace (2:00 per 100m). Take 30 seconds rest between each. The key is keeping the same pace across all three — don't go hard on the first and die on the third"},
@@ -125,7 +125,7 @@ structure:[
 // ═══ WEEK 3 (10.5hrs) ═══
 {week:3,phase:"Build I",hrs:10.5,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. This is the biggest week of Build I. Get 8+ hours sleep and eat well.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim — longer pace reps",desc:"Longest reps at your target pace so far. Deliberately pushing past your comfort zone.",duration:65,distance:2.8,equipment:"Pool",rpe:"7/10",
+{day:"Tue",disc:"swim",title:"Swim — longer pace reps",desc:"Longest reps at your target pace so far. Deliberately pushing past your comfort zone.",duration:65,distance:2.0,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy mixed strokes"},
   {block:"Main set",time:"32min",detail:"2 x 500m at your target pace (2:00 per 100m). Take 2 minutes rest between. This is 10 lengths at pace — the furthest you've held this effort continuously. Focus on keeping your stroke smooth even when it gets hard"},
@@ -144,14 +144,14 @@ structure:[
   {block:"Main set",time:"30min",detail:"30 minutes continuous, split into three 10-minute blocks: first at 5:25/km, second at 5:15/km, third at 5:05/km. Each block a bit faster than the last. Use GPS to check your pace"},
   {block:"Wind down",time:"10min",detail:"Easy jog and walk"}
 ],adjust:"If the first block at 5:25 already feels hard, shift everything 10 seconds per km slower. The pattern — getting faster — matters more than the exact numbers."},
-{day:"Fri",disc:"swim",title:"Swim — speed and sighting",desc:"Faster short reps plus practising looking ahead (you'll need this in open water on race day).",duration:55,distance:2.6,equipment:"Pool",rpe:"6/10",
+{day:"Fri",disc:"swim",title:"Swim — speed and sighting",desc:"Faster short reps plus practising looking ahead (you'll need this in open water on race day).",duration:55,distance:1.9,equipment:"Pool",rpe:"6/10",
 structure:[
   {block:"Warm-up",time:"8min",detail:"300m easy"},
   {block:"Main set",time:"30min",detail:"12 x 75m at a firm effort (faster than your target pace but not sprinting). 15 seconds rest between each. Every third one, lift your head out of the water for 3 strokes to practise sighting — this is how you'll navigate in the open water"},
   {block:"Easy distance",time:"10min",detail:"500m continuous at an easy pace with pull buoy and paddles. The paddles make you feel the water better and build pulling power"},
   {block:"Wind down",time:"5min",detail:"200m easy"}
 ],adjust:"If 15 seconds rest isn't enough, take 20. These are meant to be hard but not flat-out."},
-{day:"Sat",disc:"bike",title:"Long ride — biggest of this block",desc:"4 hours on the Trek. Your longest ride so far in the plan.",duration:240,distance:108,equipment:"Trek road bike",rpe:"6/10",
+{day:"Sat",disc:"bike",title:"Long ride — biggest of this block",desc:"4 hours on the Trek. If you can, do a 15-20 minute easy open water swim before the ride (lake, lido, or sea) — even short open water sessions build race-day confidence.",duration:240,distance:108,equipment:"Trek road bike",rpe:"6/10",
 structure:[
   {block:"Build",time:"30min",detail:"Easy start, warm into the ride"},
   {block:"Main block",time:"160min",detail:"Steady riding with 3 x 12 minutes at 150-163W (harder effort) spread through hours 2 and 3. 5 minutes easy between each"},
@@ -187,7 +187,7 @@ structure:[{block:"Easy run",time:"60min",detail:"5:30-6:10/km throughout. In th
 // ═══ WEEK 5 — Build II (10.5hrs) ═══
 {week:5,phase:"Build II",hrs:10.5,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. If your bike power went up in last week's test, your turbo targets should be updated — the harder efforts should be a bit higher now.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim — pace improvement",desc:"Same structure as Week 2 but with tighter rest. If you're fitter, the pace should feel more comfortable now.",duration:60,distance:2.8,equipment:"Pool",rpe:"7/10",
+{day:"Tue",disc:"swim",title:"Swim — pace improvement",desc:"Same structure as Week 2 but with tighter rest. If you're fitter, the pace should feel more comfortable now.",duration:60,distance:2.0,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy"},
   {block:"Main set",time:"32min",detail:"4 x 300m at your target pace (2:00 per 100m, or slightly faster if Week 1's test was quicker). 25 seconds rest between each. If the last two feel easier than in Week 2, you're improving"},
@@ -206,7 +206,7 @@ structure:[
   {block:"Transition",time:"~3min",detail:"Off the turbo. Running shoes on. Out the door. Time yourself — on race day you want this under 4 minutes"},
   {block:"Run",time:"25min",detail:"Your legs will feel terrible for the first 10 minutes — that's completely normal. Just run at whatever pace feels manageable. After 10 minutes, settle into your Ironman race pace (5:40-6:00/km) for the final 15 minutes"}
 ],adjust:"The run feeling awful at first is the whole point of this session. It gets better with practice — this is Ironman-specific fitness you can't get any other way."},
-{day:"Fri",disc:"swim",title:"Swim — breaking 3km",desc:"Your first 3km swim session. A mental milestone.",duration:65,distance:3.0,equipment:"Pool",rpe:"5-6/10",
+{day:"Fri",disc:"swim",title:"Swim — breaking 3km",desc:"Biggest swim yet. Building distance confidence. Do this in open water if possible — lake, lido, or sea. If not, pool is fine.",duration:65,distance:2.7,equipment:"Pool or open water",rpe:"5-6/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"500m easy"},
   {block:"Main set",time:"34min",detail:"1500m continuous at a comfortable pace (about 2:05-2:15 per 100m) — no stopping. Just keep swimming. Then 4 x 100m with paddles at a faster effort — the paddles build pulling strength. 15 seconds rest between each"},
@@ -228,7 +228,7 @@ structure:[
 // ═══ WEEK 6 (11hrs) ═══
 {week:6,phase:"Build II",hrs:11,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. Mid-build check: how's your sleep? Appetite? Mood? If all three are suffering, swap Thursday for an easy day.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim — race pace practice",desc:"Swimming faster than your current comfortable pace. Stretching toward your race-day target.",duration:65,distance:2.8,equipment:"Pool",rpe:"7/10",
+{day:"Tue",disc:"swim",title:"Swim — race pace practice",desc:"Swimming faster than your current comfortable pace. Stretching toward your race-day target.",duration:65,distance:2.0,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy"},
   {block:"Main set",time:"35min",detail:"3 x 400m at 1:55 per 100m — this is faster than your current comfortable pace, and that's the point. If 1:55 feels too fast, 1:58 is fine. 30 seconds rest between each. 200m easy between sets"},
@@ -247,13 +247,13 @@ structure:[
   {block:"Speed",time:"13min",detail:"5 x 400m at a fast pace (4:15-4:30/km) with a 200m slow jog between each. These are hard but short"},
   {block:"Wind down",time:"10min",detail:"Easy jog and walk"}
 ],adjust:null},
-{day:"Fri",disc:"swim",title:"Swim — sighting practice",desc:"Practising lifting your head to look where you're going. Essential for the open water swim on race day.",duration:60,distance:2.8,equipment:"Pool",rpe:"6/10",
+{day:"Fri",disc:"swim",title:"Swim — sighting practice",desc:"Practising lifting your head to look where you're going. Essential for the open water swim on race day.",duration:60,distance:2.9,equipment:"Pool",rpe:"6/10",
 structure:[
   {block:"Warm-up",time:"8min",detail:"300m easy"},
   {block:"Main set",time:"38min",detail:"3 x 800m at a firm, comfortable pace (2:00-2:05 per 100m). 1 minute rest between each. Every 200m, lift your head for 3 strokes to look forward — this is called sighting, and it's how you navigate in open water. It costs a bit of speed, so practise until it feels automatic"},
   {block:"Wind down",time:"8min",detail:"200m easy"}
 ],adjust:null},
-{day:"Sat",disc:"bike",title:"Long ride — biggest of Build II",desc:"5 hours on the Trek. This is the longest ride of this block. By hour 4 your legs will be heavy — that's the mental training.",duration:300,distance:138,equipment:"Trek road bike",rpe:"6/10",
+{day:"Sat",disc:"bike",title:"Long ride — biggest of Build II",desc:"5 hours on the Trek. If you can get an early morning open water swim in before (even 15-20 minutes), do it — the more time in open water before race day, the better.",duration:300,distance:138,equipment:"Trek road bike",rpe:"6/10",
 structure:[
   {block:"Build",time:"30min",detail:"Easy start"},
   {block:"Main block",time:"210min",detail:"Steady effort with 4 x 12 minutes harder (150-163W) in hours 2-4. Full race nutrition: 80g carbs per hour. Routes with some hills are good if possible"},
@@ -269,7 +269,7 @@ structure:[
 // ═══ WEEK 7 — Build II peak (11.5hrs) ═══
 {week:7,phase:"Build II",hrs:11.5,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. This is the biggest week of the entire plan. After this, everything gets easier.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim — pace check",desc:"5 x 300m at pace. If you can hold a faster pace than Week 2, your swim fitness has improved.",duration:70,distance:3.1,equipment:"Pool",rpe:"7/10",
+{day:"Tue",disc:"swim",title:"Swim — pace check",desc:"5 x 300m at pace. If you can hold a faster pace than Week 2, your swim fitness has improved.",duration:70,distance:2.3,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy"},
   {block:"Main set",time:"38min",detail:"5 x 300m at your target pace (aim for 1:58 per 100m or faster — compare to Weeks 2 and 5). 25 seconds rest between each. If you're holding 1:58 or better, you've taken 2 seconds off your pace in 6 weeks"},
@@ -323,7 +323,7 @@ structure:[
 // ═══ WEEK 9 — Race-specific (12hrs) ═══
 {week:9,phase:"Race-specific",hrs:12,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. Everything from here is race-specific. Updated turbo targets should be loaded from the Week 8 test.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Full race distance swim",desc:"3.8km non-stop — the full Ironman swim distance. Your first time doing this in one go.",duration:85,distance:4.5,equipment:"Pool",rpe:"6-7/10",
+{day:"Tue",disc:"swim",title:"Full race distance swim",desc:"3.8km non-stop — the full Ironman swim distance. Your first time doing this in one go. If you can do this in open water, even better — but pool is absolutely fine.",duration:85,distance:4.5,equipment:"Pool or open water",rpe:"6-7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"500m easy"},
   {block:"Main",time:"62min",detail:"3800m continuous at your race pace (1:52-1:58 per 100m). That's 76 lengths. Don't sprint the first few hundred metres — settle into your rhythm by 400m and hold it. Every 500m, sight (lift your head) for a few strokes to practise"},
@@ -337,13 +337,13 @@ structure:[
   {block:"Main",time:"45min",detail:"Continuous at 5:40-6:00/km. Walk for 20 seconds at the halfway point (simulating an aid station). Gel at 30 minutes"},
   {block:"Wind down",time:"10min",detail:"Easy jog"}
 ],adjust:null},
-{day:"Fri",disc:"swim",title:"Swim — fast 100s",desc:"Keeping your speed sharp with shorter, faster reps.",duration:50,distance:2.2,equipment:"Pool",rpe:"7/10",
+{day:"Fri",disc:"swim",title:"Swim — fast 100s",desc:"Keeping your speed sharp with shorter, faster reps.",duration:50,distance:1.6,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"8min",detail:"300m easy"},
   {block:"Main",time:"30min",detail:"10 x 100m at a fast effort (1:48-1:55 per 100m — harder than race pace). 15 seconds rest between each. Hold your technique even when tired"},
   {block:"Wind down",time:"8min",detail:"300m easy"}
 ],adjust:null},
-{day:"Sat",disc:"bike",title:"Longest ride — 6 hours",desc:"Your biggest ride ever. This proves that 180km is within you.",duration:360,distance:168,equipment:"Trek road bike",rpe:"6/10",
+{day:"Sat",disc:"bike",title:"Longest ride — 6 hours",desc:"Your biggest ride ever. Get an early open water swim in before if possible (20 minutes, easy). This proves 180km is within you.",duration:360,distance:168,equipment:"Trek road bike",rpe:"6/10",
 structure:[{block:"Full ride",time:"360min",detail:"Steady effort with 4 x 18 minutes at race power spread through hours 2-5. Full race nutrition. Mentally rehearse everything — the flat sections, the hills, the headwind, the dark patch at hour 5 when you'll want to stop. You won't stop."}],adjust:null},
 {day:"Sun",disc:"run",title:"Long run on tired legs",desc:"Running on yesterday's 6-hour ride legs. This is the closest thing to race day you'll experience in training.",duration:150,distance:26,equipment:"Road",rpe:"6-7/10",
 structure:[
@@ -355,7 +355,7 @@ structure:[
 // ═══ WEEK 10 — Half-Distance Test (9hrs) ═══
 {week:10,phase:"Race-specific",hrs:9,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. Saturday is the biggest test of the whole plan — a half-distance Ironman. It tells us exactly where you are.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Short sharp swim",desc:"Quick session to stay sharp without tiring yourself before Saturday.",duration:45,distance:2.0,equipment:"Pool",rpe:"6/10",
+{day:"Tue",disc:"swim",title:"Short sharp swim",desc:"Quick session to stay sharp without tiring yourself before Saturday.",duration:45,distance:1.6,equipment:"Pool",rpe:"6/10",
 structure:[{block:"Session",time:"45min",detail:"400m warm-up. 4 x 200m at race pace with 20 seconds rest. 4 x 50m fast. 200m wind down."}],adjust:null},
 {day:"Wed",disc:"bike",title:"Easy turbo opener",desc:"Legs out. Stay fresh for Saturday.",duration:60,distance:null,equipment:"Turbo + Swift",rpe:"4/10",
 structure:[{block:"Opener",time:"60min",detail:"Easy spinning with 3 x 3 minutes at race power. Nothing more."}],adjust:null},
@@ -382,27 +382,32 @@ structure:[{block:"Session",time:"65min",detail:"400m warm-up. 2 x 1000m at a co
 structure:[{block:"Session",time:"150min",detail:"30 minutes warm-up, then 3 x 22 minutes at race power with 10 minutes easy between each. Steady — no surges, no fading."}],adjust:null},
 {day:"Thu",disc:"run",title:"Run — getting faster throughout",desc:"Practising your race strategy: start conservative, finish strong.",duration:60,distance:11.5,equipment:"Road",rpe:"6-7/10",
 structure:[{block:"Session",time:"60min",detail:"15 minutes warm-up. Then 35 minutes getting progressively faster: 12 minutes at 5:40/km, 12 minutes at 5:25/km, 11 minutes at 5:10/km. 10 minutes easy wind down."}],adjust:null},
-{day:"Fri",disc:"swim",title:"Light swim",desc:"Easy session to stay sharp.",duration:45,distance:2.0,equipment:"Pool",rpe:"5/10",
+{day:"Fri",disc:"swim",title:"Light swim",desc:"Easy session to stay sharp.",duration:45,distance:1.5,equipment:"Pool",rpe:"5/10",
 structure:[{block:"Session",time:"45min",detail:"300m warm-up. 8 x 75m at a firm effort with 15 seconds rest. 400m easy swimming. 200m wind down."}],adjust:null},
 {day:"Sat",disc:"bike",title:"Last long ride",desc:"5 hours. Your final big ride. After today, the distance never comes back. Execute with precision.",duration:300,distance:140,equipment:"Trek road bike",rpe:"6/10",
 structure:[{block:"Session",time:"300min",detail:"Steady effort with 3 x 18 minutes at race power in hours 2-4. Full race nutrition. This is your final bike dress rehearsal."}],adjust:null},
-{day:"Sun",disc:"run",title:"Last long run",desc:"Final big run. Full dress rehearsal — race shoes, race belt, race nutrition. Everything exactly as July 12.",duration:135,distance:23.5,equipment:"Road",rpe:"6/10",
+{day:"Sun",disc:"run",title:"Last long run — then France",desc:"Final big run before the France holiday. Full dress rehearsal — race shoes, race belt, race nutrition. You fly out to France today or tomorrow.",duration:135,distance:23.5,equipment:"Road",rpe:"6/10",
 structure:[{block:"Session",time:"135min",detail:"80 minutes easy, 40 minutes at Ironman pace (5:40-6:00/km), 15 minutes easy wind down. The hay is in the barn after this one."}],adjust:null}
 ]},
-// ═══ WEEK 12 — Recovery (5hrs) ═══
-{week:12,phase:"Absorb",hrs:5,days:[
-{day:"Mon",disc:"rest",title:"Rest",desc:"Rest. The big work is done. Trust the 11 weeks you've banked.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Easy swim",desc:"Easy. No pressure.",duration:30,distance:1.2,equipment:"Pool",rpe:"3/10",structure:[{block:"Easy",time:"30min",detail:"1200m at whatever pace feels good. Mix strokes."}],adjust:null},
-{day:"Wed",disc:"bike",title:"Easy spin",desc:"No efforts.",duration:60,distance:25,equipment:"Turbo or Trek",rpe:"3/10",structure:[{block:"Easy",time:"60min",detail:"Flat and easy. 103-140W. Enjoy the ride."}],adjust:null},
-{day:"Thu",disc:"run",title:"Easy run",desc:"Keep moving.",duration:30,distance:5.5,equipment:"Road",rpe:"3/10",structure:[{block:"Easy",time:"30min",detail:"Easy jog. 4 x 20-second strides at the end."}],adjust:null},
-{day:"Fri",disc:"rest",title:"Stretching",desc:"30 minutes of yoga or stretching. Hip flexors, hamstrings, shoulders.",duration:30,distance:null,equipment:"Home or gym",rpe:"2/10",structure:[{block:"Mobility",time:"30min",detail:"Easy stretching. Focus on anything that feels tight."}],adjust:null},
-{day:"Sat",disc:"bike",title:"Moderate ride",desc:"Quick reminder of race effort.",duration:75,distance:32,equipment:"Trek or turbo",rpe:"4/10",structure:[{block:"Ride",time:"75min",detail:"Easy effort with 2 x 5 minutes at race power. Just a reminder of what it feels like."}],adjust:null},
-{day:"Sun",disc:"run",title:"Moderate run",desc:"Easy with a couple of faster bits.",duration:45,distance:8,equipment:"Road",rpe:"4/10",structure:[{block:"Run",time:"45min",detail:"Easy jog with 2 x 3 minutes at Ironman pace (5:40-6:00/km)."}],adjust:null}
+// ═══ WEEK 12 — France holiday (4.5hrs) ═══
+{week:12,phase:"Absorb",hrs:4.5,days:[
+{day:"Mon",disc:"rest",title:"Rest — France",desc:"Settle in. Recovery week on holiday — the big training is done. Enjoy France, eat well, stay loose. Running and swimming only this week.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
+{day:"Tue",disc:"run",title:"Easy holiday run",desc:"Morning run before the day heats up. Explore the local area.",duration:40,distance:7,equipment:"Road or trail",rpe:"4/10",
+structure:[{block:"Easy run",time:"40min",detail:"Easy pace, 5:30-6:10/km. Explore the area — find a nice route you can repeat later in the week. Flat or gently rolling. Enjoy the scenery, this isn't a hard session."}],adjust:"If it's too hot, go early (before 8am) or skip and go tomorrow instead."},
+{day:"Wed",disc:"swim",title:"Holiday swim — open water or pool",desc:"If there's a lake, river, or sea nearby, swim in it. Otherwise find a local pool.",duration:35,distance:1.5,equipment:"Open water or pool",rpe:"4/10",
+structure:[{block:"Easy swim",time:"35min",detail:"1500m easy. If open water: stay close to shore, swim parallel to the beach. Practice sighting. If pool: easy mixed strokes, no intervals. This is active recovery with a bit of open water practice."}],adjust:"No swim available? Do a 30-minute easy run or just rest. Don't stress about finding a pool."},
+{day:"Thu",disc:"run",title:"Tempo run — holiday",desc:"One quality session this week. Morning run with a faster block.",duration:45,distance:8,equipment:"Road or trail",rpe:"5-6/10",
+structure:[{block:"Easy start",time:"15min",detail:"5:30-6:10/km warm-up"},{block:"Tempo",time:"20min",detail:"5:05-5:25/km — comfortably hard. This is the only real effort of the holiday week"},{block:"Wind down",time:"10min",detail:"Easy jog"}],adjust:"Too hot? Shift the whole thing 15 seconds per km slower. The effort matters more than the pace in the heat."},
+{day:"Fri",disc:"rest",title:"Rest day",desc:"Full rest. Explore, eat, relax. Maybe some stretching or yoga if you feel like it.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
+{day:"Sat",disc:"swim",title:"Open water swim",desc:"If there's open water available, this is a great chance to practice in a different environment to the pool.",duration:30,distance:1.0,equipment:"Open water or pool",rpe:"4/10",
+structure:[{block:"Open water",time:"30min",detail:"1000m easy. If sea or lake: practice sighting every 8-10 strokes, swim parallel to shore. Get comfortable in open water — the race swim is in open water so every session outside a pool helps. If no open water, easy pool swim."}],adjust:null},
+{day:"Sun",disc:"run",title:"Long-ish run — last day in France",desc:"Longest run of the holiday week. Nothing crazy — just accumulate time on your feet.",duration:60,distance:10.5,equipment:"Road or trail",rpe:"4-5/10",
+structure:[{block:"Easy run",time:"60min",detail:"5:30-6:10/km throughout. Include 2 x 3 minutes at Ironman pace (5:40-6:00/km) in the second half to keep the legs honest. Walk 5 minutes at the end. Travel home tomorrow — taper week starts."}],adjust:null}
 ]},
 // ═══ WEEK 13 — Taper (4hrs) ═══
 {week:13,phase:"Taper",hrs:4,days:[
 {day:"Mon",disc:"rest",title:"Rest",desc:"Rest. You'll feel anxious about the reduced training — this is completely normal. Your fitness is banked. It doesn't disappear in a week. Start sorting travel, registration, gear bags.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Short swim opener",desc:"Quick and sharp.",duration:25,distance:1.2,equipment:"Pool",rpe:"5/10",structure:[{block:"Session",time:"25min",detail:"300m warm-up. 4 x 100m at race pace with 15 seconds rest. 200m wind down."}],adjust:null},
+{day:"Tue",disc:"swim",title:"Short swim opener",desc:"Quick and sharp.",duration:25,distance:0.9,equipment:"Pool",rpe:"5/10",structure:[{block:"Session",time:"25min",detail:"300m warm-up. 4 x 100m at race pace with 15 seconds rest. 200m wind down."}],adjust:null},
 {day:"Wed",disc:"bike",title:"Short turbo opener",desc:"Quick legs.",duration:50,distance:null,equipment:"Turbo + Swift",rpe:"4/10",structure:[{block:"Session",time:"50min",detail:"Easy spinning with 3 x 3 minutes at race power. High cadence (95+rpm). Everything should feel easy — that's the taper working."}],adjust:null},
 {day:"Thu",disc:"run",title:"Short run opener",desc:"Stay loose.",duration:25,distance:4.5,equipment:"Road",rpe:"4/10",structure:[{block:"Session",time:"25min",detail:"Easy jog with 3 x 2 minutes at Ironman pace. You'll feel like you need more. You don't."}],adjust:null},
 {day:"Fri",disc:"swim",title:"Final swim",desc:"Last time in the pool.",duration:15,distance:0.6,equipment:"Pool",rpe:"3/10",structure:[{block:"Easy",time:"15min",detail:"600m easy. Visualise the swim start while you swim."}],adjust:null},
