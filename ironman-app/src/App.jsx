@@ -39,13 +39,13 @@ function genPlan() {
 // ═══ WEEK 1 (9.5hrs) ═══
 {week:1,phase:"Build I",hrs:9.5,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Full rest. Foam roll or stretch for 20 minutes if you fancy it.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim test + pace work",desc:"Finding out your current pace, then practising holding it.",duration:55,distance:1.8,equipment:"Pool",rpe:"6-7/10",
+{day:"Tue",disc:"swim",title:"Swim — building distance",desc:"Pushing past 2km for the first time in a structured session. Swim test moved to Friday.",duration:55,distance:1.8,equipment:"Pool",rpe:"5-6/10",
 structure:[
-  {block:"Warm-up",time:"10min",detail:"400m easy swimming — mix of front crawl and backstroke, take your time"},
-  {block:"Test",time:"~7min",detail:"Swim 400m as fast as you can. Time it. This tells us your current pace per 100m — we'll use this number to set targets for the next 13 weeks"},
-  {block:"Main set",time:"25min",detail:"6 x 100m at the pace your test gave you (probably around 2:00 per 100m). Take 15-20 seconds rest between each one. Focus on keeping your stroke long and relaxed"},
-  {block:"Wind down",time:"8min",detail:"400m easy — 200m with pull buoy (legs relaxed, focus on upper body pull), 200m backstroke"}
-],adjust:"If the test wipes you out, just do 4 x 100m instead of 6. The test itself is the important bit today."},
+  {block:"Warm-up",time:"10min",detail:"300m easy, whatever stroke feels good"},
+  {block:"Main set A",time:"22min",detail:"4 x 200m at a comfortable pace (around 2:05-2:20 per 100m). Take 20 seconds rest between each"},
+  {block:"Main set B",time:"12min",detail:"8 x 50m — each set of 4 gets faster. So: moderate, a bit harder, hard, near-sprint. Then repeat. 15 seconds rest between each"},
+  {block:"Wind down",time:"8min",detail:"300m with pull buoy and paddles — this builds arm strength and gets you used to a stronger catch. Keep it relaxed"}
+],adjust:"If you're flagging on the 200s, drop to 3 x 200m and add extra 50s instead."},
 {day:"Wed",disc:"bike",title:"Turbo — steady hard intervals",desc:"Structured turbo session. Set the power target in Swift and let it control the resistance.",duration:75,distance:null,equipment:"Turbo + Swift",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"15min",detail:"Easy spinning, gradually building effort. Cadence 85-95rpm"},
@@ -58,13 +58,13 @@ structure:[
   {block:"Main set",time:"25min",detail:"25 minutes at 5:05-5:25/km — this is comfortably hard. You could talk in short sentences but wouldn't want to. Don't speed up on hills, just hold the effort steady"},
   {block:"Wind down",time:"10min",detail:"Easy jog. At the end, do 4 x 20-second fast strides with a walk back between each"}
 ],adjust:"If your legs are heavy from yesterday's turbo, just run the whole thing easy. Consistency matters more than one hard session."},
-{day:"Fri",disc:"swim",title:"Swim — building distance",desc:"Pushing past 2km for the first time in a structured session.",duration:55,distance:1.8,equipment:"Pool",rpe:"5-6/10",
+{day:"Fri",disc:"swim",title:"Swim test + pace work",desc:"Finding out your current pace, then practising holding it. This is the baseline test — everything updates from here.",duration:55,distance:1.8,equipment:"Pool",rpe:"6-7/10",
 structure:[
-  {block:"Warm-up",time:"10min",detail:"300m easy, whatever stroke feels good"},
-  {block:"Main set A",time:"22min",detail:"4 x 200m at a comfortable pace (around 2:05-2:20 per 100m). Take 20 seconds rest between each"},
-  {block:"Main set B",time:"12min",detail:"8 x 50m — each set of 4 gets faster. So: moderate, a bit harder, hard, near-sprint. Then repeat. 15 seconds rest between each"},
-  {block:"Wind down",time:"8min",detail:"300m with pull buoy and paddles — this builds arm strength and gets you used to a stronger catch. Keep it relaxed"}
-],adjust:"If you're flagging on the 200s, drop to 3 x 200m and add extra 50s instead."},
+  {block:"Warm-up",time:"10min",detail:"400m easy swimming — mix of front crawl and backstroke, take your time"},
+  {block:"Test",time:"~7min",detail:"Swim 400m as fast as you can. Time it. This tells us your current pace per 100m — we'll use this number to set targets for the next 13 weeks"},
+  {block:"Main set",time:"25min",detail:"6 x 100m at the pace your test gave you (probably around 2:00 per 100m). Take 15-20 seconds rest between each one. Focus on keeping your stroke long and relaxed"},
+  {block:"Wind down",time:"8min",detail:"400m easy — 200m with pull buoy (legs relaxed, focus on upper body pull), 200m backstroke"}
+],adjust:"If the test wipes you out, just do 4 x 100m instead of 6. The test itself is the important bit today."},
 {day:"Sat",disc:"bike",title:"Long ride — outdoor",desc:"Weekend long ride on the Trek. Building time in the saddle and practising eating/drinking on the bike.",duration:180,distance:80,equipment:"Trek road bike",rpe:"5-6/10",
 structure:[
   {block:"First 40min",time:"40min",detail:"Easy — don't push, let your legs warm up naturally"},
@@ -449,6 +449,61 @@ structure:[
 }
 
 const PLAN=genPlan();
+
+// ── Adaptive zones — recalculate from test results ──────────
+const TEST_KEYS = {
+  "0-4": "swim400",   // Week 1 Fri: Swim 400m test
+  "3-2": "ftp1",      // Week 4 Wed: FTP test 1
+  "7-2": "ftp2",      // Week 8 Wed: FTP test 2
+  "9-5": "halfDist",  // Week 10 Sat: Half-distance test
+};
+
+function computeZones(tests) {
+  // Start from baseline
+  let swimPaceSec = 120; // 2:00 per 100m in seconds
+  let ftp = 172;
+
+  // Swim: 400m time → pace per 100m
+  if (tests.swim400) {
+    const t = parseFloat(tests.swim400);
+    if (t > 0) swimPaceSec = Math.round(t / 4); // total seconds / 4 = per 100m
+  }
+
+  // Bike: use latest FTP test
+  if (tests.ftp2) { ftp = Math.round(parseFloat(tests.ftp2) * 0.95); }
+  else if (tests.ftp1) { ftp = Math.round(parseFloat(tests.ftp1) * 0.95); }
+
+  const swimMins = Math.floor(swimPaceSec / 60);
+  const swimSecs = swimPaceSec % 60;
+  const swimPaceStr = swimMins + ":" + String(swimSecs).padStart(2, "0");
+
+  return {
+    swim: {
+      pace: swimPaceStr,
+      paceSec: swimPaceSec,
+      z2: [swimPaceSec + 10, swimPaceSec + 25],
+      z3: [swimPaceSec - 5, swimPaceSec + 5],
+      z4: [swimPaceSec - 12, swimPaceSec - 5],
+      race: [swimPaceSec - 8, swimPaceSec - 2],
+    },
+    bike: {
+      ftp: ftp,
+      z2: [Math.round(ftp * 0.6), Math.round(ftp * 0.81)],
+      z3: [Math.round(ftp * 0.81), Math.round(ftp * 0.95)],
+      ss: [Math.round(ftp * 0.87), Math.round(ftp * 0.95)],
+      z4: [Math.round(ftp * 0.95), ftp],
+      race: [Math.round(ftp * 0.73), Math.round(ftp * 0.8)],
+    }
+  };
+}
+
+function fmtSwimPace(sec) {
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return m + ":" + String(s).padStart(2, "0");
+}
+
+
 const loadD=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(f))}catch{return f}};
 const saveD=(k,d)=>localStorage.setItem(k,JSON.stringify(d));
 const getCW=()=>{const n=new Date();return Math.max(0,PLAN.findIndex(w=>n>=w.startDate&&n<=w.endDate))};
@@ -460,6 +515,9 @@ const S={card:{background:T.card,borderRadius:12,border:`1px solid ${T.border}`,
 
 export default function App(){
   const[tab,setTab]=useState("plan");const[cw,setCw]=useState(getCW());const[comp,setComp]=useState(()=>loadD("im5-c",{}));const[met,setMet]=useState(()=>loadD("im5-m",{}));const[rpe,setRpe]=useState(()=>loadD("im5-r",{}));const[sel,setSel]=useState(null);const[modal,setModal]=useState(null);
+  const[tests,setTests]=useState(()=>loadD("im5-tests",{}));
+  useEffect(()=>{saveD("im5-tests",tests)},[tests]);
+  const zones=useMemo(()=>computeZones(tests),[tests]);
   const[strava,setStrava]=useState({connected:false,syncing:false,athlete:null,activities:[],lastSync:null,error:null});
   useEffect(()=>{saveD("im5-c",comp)},[comp]);useEffect(()=>{saveD("im5-m",met)},[met]);useEffect(()=>{saveD("im5-r",rpe)},[rpe]);
 
@@ -516,8 +574,8 @@ export default function App(){
       <div style={{fontFamily:"'Space Mono',monospace",fontSize:9,letterSpacing:3,textTransform:"uppercase",color:T.textDim}}>Ironman · July 12 · Finish strong</div>
       <div style={{fontSize:36,fontWeight:500,lineHeight:1.1,marginTop:4,color:T.accent}}>{dU()}<span style={{fontSize:14,fontWeight:400,color:T.textMid,marginLeft:6}}>days to go</span></div>
       <div style={{display:"flex",gap:5,justifyContent:"center",marginTop:8,flexWrap:"wrap"}}>
-        <span style={S.badge(DC.bike)}>FTP {A.bike.ftp}→{A.bike.ftpTarget}W</span>
-        <span style={S.badge(DC.swim)}>Pace 2:00→1:52</span>
+        <span style={S.badge(DC.bike)}>FTP {zones.bike.ftp}W{zones.bike.ftp<188?` → ${A.bike.ftpTarget}W`:` ✓`}</span>
+        <span style={S.badge(DC.swim)}>Pace {zones.swim.pace}{zones.swim.paceSec>112?` → 1:52`:` ✓`}</span>
         <span style={S.badge(T.success)}>{Math.round(tc/Math.max(tw,1)*100)}% complete</span>
       </div>
     </div>
@@ -551,6 +609,41 @@ export default function App(){
             </div>
             {ie&&<div style={{padding:"0 12px 12px",borderTop:`1px solid ${T.borderLight}`}}>
               {d.structure&&<div style={{marginTop:8}}>{d.structure.map((b,bi)=>(<div key={bi} style={{marginBottom:8}}><div style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}><span style={{fontSize:10,fontWeight:500,color:DC[d.disc]||T.accent,textTransform:"uppercase"}}>{b.block}</span><span style={{fontSize:10,color:T.textDim}}>{b.time}</span></div><div style={{fontSize:12,lineHeight:1.65,color:T.textMid}}>{b.detail}</div></div>))}</div>}
+              {/* Current targets based on test results */}
+              {d.disc==="swim"&&zones.swim&&<div style={{background:T.accent+"15",borderRadius:8,padding:"8px 10px",marginBottom:8,border:`1px solid ${T.accent}25`}}>
+                <div style={{fontSize:10,fontWeight:500,color:T.accent,marginBottom:3}}>Your current swim targets</div>
+                <div style={{fontSize:11,color:T.textMid}}>Pace: <span style={{color:T.text,fontWeight:500}}>{zones.swim.pace}/100m</span> · Steady: {fmtSwimPace(zones.swim.z2[0])}-{fmtSwimPace(zones.swim.z2[1])}/100m · Hard: {fmtSwimPace(zones.swim.z4[0])}-{fmtSwimPace(zones.swim.z4[1])}/100m</div>
+              </div>}
+              {(d.disc==="bike"||d.disc==="brick")&&zones.bike&&<div style={{background:T.accent+"15",borderRadius:8,padding:"8px 10px",marginBottom:8,border:`1px solid ${T.accent}25`}}>
+                <div style={{fontSize:10,fontWeight:500,color:T.accent,marginBottom:3}}>Your current bike targets</div>
+                <div style={{fontSize:11,color:T.textMid}}>FTP: <span style={{color:T.text,fontWeight:500}}>{zones.bike.ftp}W</span> · Sweet spot: {zones.bike.ss[0]}-{zones.bike.ss[1]}W · Race power: {zones.bike.race[0]}-{zones.bike.race[1]}W</div>
+              </div>}
+              {/* Test result input for benchmark workouts */}
+              {TEST_KEYS[`${cw}-${di}`]&&<div style={{background:"#9B72E815",borderRadius:8,padding:"10px",marginBottom:8,border:`1px solid ${T.accent}40`}}>
+                <div style={{fontSize:11,fontWeight:500,color:T.accent,marginBottom:6}}>📊 Log your test result</div>
+                {TEST_KEYS[`${cw}-${di}`]==="swim400"&&<div>
+                  <div style={{fontSize:11,color:T.textMid,marginBottom:4}}>Enter your 400m time in seconds (e.g. 468 for 7:48)</div>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}>
+                    <input type="number" placeholder="Total seconds" value={tests.swim400||""} onChange={e=>setTests(p=>({...p,swim400:e.target.value}))} style={{flex:1,padding:"7px 8px",fontSize:13}} />
+                    {tests.swim400&&<span style={{fontSize:12,color:T.success,fontWeight:500}}>= {fmtSwimPace(Math.round(parseFloat(tests.swim400)/4))}/100m</span>}
+                  </div>
+                </div>}
+                {(TEST_KEYS[`${cw}-${di}`]==="ftp1"||TEST_KEYS[`${cw}-${di}`]==="ftp2")&&<div>
+                  <div style={{fontSize:11,color:T.textMid,marginBottom:4}}>Enter your 20-minute average power from Strava/Swift</div>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}>
+                    <input type="number" placeholder="Average watts" value={tests[TEST_KEYS[`${cw}-${di}`]]||""} onChange={e=>{const k=TEST_KEYS[`${cw}-${di}`];setTests(p=>({...p,[k]:e.target.value}))}} style={{flex:1,padding:"7px 8px",fontSize:13}} />
+                    {tests[TEST_KEYS[`${cw}-${di}`]]&&<span style={{fontSize:12,color:T.success,fontWeight:500}}>FTP = {Math.round(parseFloat(tests[TEST_KEYS[`${cw}-${di}`]])*0.95)}W</span>}
+                  </div>
+                </div>}
+                {TEST_KEYS[`${cw}-${di}`]==="halfDist"&&<div>
+                  <div style={{fontSize:11,color:T.textMid,marginBottom:4}}>Enter your total time in minutes (e.g. 325 for 5:25)</div>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}>
+                    <input type="number" placeholder="Total minutes" value={tests.halfDist||""} onChange={e=>setTests(p=>({...p,halfDist:e.target.value}))} style={{flex:1,padding:"7px 8px",fontSize:13}} />
+                    {tests.halfDist&&<span style={{fontSize:12,color:T.success,fontWeight:500}}>{Math.floor(parseFloat(tests.halfDist)/60)}h {Math.round(parseFloat(tests.halfDist)%60)}m</span>}
+                  </div>
+                </div>}
+                {Object.keys(tests).length>0&&<div style={{fontSize:10,color:T.textDim,marginTop:6}}>All your workout targets across the plan update automatically when you log a test result</div>}
+              </div>}
               {d.rpe&&<div style={{fontSize:11,color:T.textDim,marginTop:4,marginBottom:6}}>Target effort: <span style={{color:T.accent,fontWeight:500}}>{d.rpe}</span></div>}
               {d.adjust&&<div style={{background:T.cardAlt,borderRadius:8,padding:"8px 10px",marginBottom:8,fontSize:11,lineHeight:1.6,color:T.textMid}}><span style={{color:T.accent,fontWeight:500}}>If in doubt: </span>{d.adjust}</div>}
               {d.disc!=="rest"&&<div style={{display:"flex",gap:5,marginTop:6}}>
@@ -577,7 +670,13 @@ export default function App(){
       <div style={{...S.card,padding:12,marginBottom:8}}><div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:4}}>Coach notes</div><p style={{fontSize:12,lineHeight:1.65,margin:0}}>{w.phaseDesc}</p></div>
       <div style={{...S.card,padding:12,marginBottom:8}}>
         <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:6}}>Key benchmarks</div>
-        {[{wk:1,l:"Swim speed test (400m timed)"},{wk:4,l:"Bike power test 1 — target 178W+"},{wk:8,l:"Bike power test 2 — target 185W+"},{wk:10,l:"Half-distance test — under 5:45"},{wk:14,l:"🏁 Race day — 12:00-13:00"}].map((b,i)=>(<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"4px 0",fontSize:12,borderBottom:i<4?`1px solid ${T.borderLight}`:"none"}}><span style={{width:18,height:18,borderRadius:"50%",border:`1.5px solid ${cw>=b.wk-1?T.success:T.border}`,background:cw>=b.wk-1?T.successDim:"transparent",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,color:T.success,flexShrink:0}}>{cw>=b.wk-1?"✓":""}</span><span style={{color:T.textDim,fontSize:11}}>W{b.wk}</span><span>{b.l}</span></div>))}
+        {[
+          {wk:1,l:tests.swim400?`Swim test: ${fmtSwimPace(Math.round(parseFloat(tests.swim400)/4))}/100m`:"Swim speed test (400m timed)"},
+          {wk:4,l:tests.ftp1?`FTP test 1: ${Math.round(parseFloat(tests.ftp1)*0.95)}W`:"Bike power test 1 — target 178W+"},
+          {wk:8,l:tests.ftp2?`FTP test 2: ${Math.round(parseFloat(tests.ftp2)*0.95)}W`:"Bike power test 2 — target 185W+"},
+          {wk:10,l:tests.halfDist?`Half-distance: ${Math.floor(parseFloat(tests.halfDist)/60)}h ${Math.round(parseFloat(tests.halfDist)%60)}m`:"Half-distance test — under 5:45"},
+          {wk:14,l:"🏁 Race day — 12:00-13:00"}
+        ].map((b,i)=>(<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"4px 0",fontSize:12,borderBottom:i<4?`1px solid ${T.borderLight}`:"none"}}><span style={{width:18,height:18,borderRadius:"50%",border:`1.5px solid ${cw>=b.wk-1?T.success:T.border}`,background:cw>=b.wk-1?T.successDim:"transparent",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,color:T.success,flexShrink:0}}>{cw>=b.wk-1?"✓":""}</span><span style={{color:T.textDim,fontSize:11}}>W{b.wk}</span><span>{b.l}</span></div>))}
       </div>
       <div style={{...S.card,padding:12}}>
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
@@ -618,8 +717,12 @@ export default function App(){
       </div>
       <div style={{...S.card,padding:12}}>
         <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:6}}>Race day targets</div>
-        {[{l:"Swim 3.8km",t:A.proj.swim.t,p:A.proj.swim.p},{l:"T1",t:A.proj.t1.t},{l:"Bike 180km",t:A.proj.bike.t,p:A.proj.bike.p},{l:"T2",t:A.proj.t2.t},{l:"Run 42.2km",t:A.proj.run.t,p:A.proj.run.p}].map((r,i)=>(<div key={i} style={{display:"flex",justifyContent:"space-between",padding:"4px 0",borderBottom:i<4?`1px solid ${T.borderLight}`:"none",fontSize:12}}><span style={{fontWeight:500}}>{r.l}</span><span style={{color:T.textMid,textAlign:"right"}}>{r.t}{r.p&&<span style={{fontSize:10,color:T.textDim,display:"block"}}>{r.p}</span>}</span></div>))}
-        <div style={{display:"flex",justifyContent:"space-between",marginTop:8,paddingTop:8,borderTop:`1.5px solid ${T.border}`,fontSize:14,fontWeight:500}}><span>Target</span><span style={{color:T.accent}}>{A.proj.total}</span></div>
+        {(()=>{
+          const sp=zones.swim.paceSec;const swimMin=Math.round(3800/100*sp/60);const swimH=Math.floor(swimMin/60);const swimM=swimMin%60;
+          const rw=zones.bike.race;const bikeMin=Math.round(180/(rw[0]+rw[1])*2*60);const bikeH=Math.floor(bikeMin/60);const bikeM=bikeMin%60;
+          return [{l:"Swim 3.8km",t:`${swimH}:${String(swimM).padStart(2,"0")}`,p:`${zones.swim.pace}/100m`},{l:"T1",t:"5:00"},{l:"Bike 180km",t:`${bikeH}:${String(bikeM).padStart(2,"0")}`,p:`${rw[0]}-${rw[1]}W avg`},{l:"T2",t:"4:00"},{l:"Run 42.2km",t:A.proj.run.t,p:A.proj.run.p}];
+        })().map((r,i)=>(<div key={i} style={{display:"flex",justifyContent:"space-between",padding:"4px 0",borderBottom:i<4?`1px solid ${T.borderLight}`:"none",fontSize:12}}><span style={{fontWeight:500}}>{r.l}</span><span style={{color:T.textMid,textAlign:"right"}}>{r.t}{r.p&&<span style={{fontSize:10,color:T.textDim,display:"block"}}>{r.p}</span>}</span></div>))}
+        <div style={{display:"flex",justifyContent:"space-between",marginTop:8,paddingTop:8,borderTop:`1.5px solid ${T.border}`,fontSize:14,fontWeight:500}}><span>Target</span><span style={{color:T.accent}}>{(()=>{const sp=zones.swim.paceSec;const s=Math.round(3800/100*sp/60);const rw=zones.bike.race;const b=Math.round(180/((rw[0]+rw[1])/2)*60);const r=265;const t=s+5+b+4+r;const h=Math.floor(t/60);const m=t%60;return `${h}:${String(m).padStart(2,"0")}`;})()}</span></div>
       </div>
     </div>}
 
@@ -629,9 +732,9 @@ export default function App(){
         <div style={{fontSize:12,lineHeight:1.6,color:T.textMid}}>Trained for Ironman Nov 2025 (didn't finish — bike accident). Been training since Jan 2026. Confident on bike after Mallorca. Uses Wahoo turbo with Swift feeding into Strava, Trek road bike outdoors, 50m pool, full gym.</div>
       </div>
       {[
-        {icon:DI.bike,label:"Bike targets",badge:`FTP ${A.bike.ftp}W`,color:DC.bike,zones:[{z:"Easy effort",r:`<${A.bike.z1[1]}W`},{z:"Steady endurance",r:`${A.bike.z2[0]}-${A.bike.z2[1]}W`},{z:"Moderate-hard (tempo)",r:`${A.bike.z3[0]}-${A.bike.z3[1]}W`},{z:"Steady-hard (sweet spot)",r:`${A.bike.ss[0]}-${A.bike.ss[1]}W`,h:1},{z:"Hard (threshold)",r:`${A.bike.z4[0]}-${A.bike.z4[1]}W`},{z:"Race day power",r:`${A.bike.race[0]}-${A.bike.race[1]}W`,h:1}],notes:`Current threshold: ${A.bike.ftp}W. Target by race day: ${A.bike.ftpTarget}W. The bike is the biggest area for improvement — structured turbo sessions are the key.`},
+        {icon:DI.bike,label:"Bike targets",badge:`FTP ${zones.bike.ftp}W`,color:DC.bike,zones:[{z:"Easy effort",r:`<${Math.round(zones.bike.ftp*0.6)}W`},{z:"Steady endurance",r:`${zones.bike.z2[0]}-${zones.bike.z2[1]}W`},{z:"Moderate-hard (tempo)",r:`${zones.bike.z3[0]}-${zones.bike.z3[1]}W`},{z:"Steady-hard (sweet spot)",r:`${zones.bike.ss[0]}-${zones.bike.ss[1]}W`,h:1},{z:"Hard (threshold)",r:`${zones.bike.z4[0]}-${zones.bike.ftp}W`},{z:"Race day power",r:`${zones.bike.race[0]}-${zones.bike.race[1]}W`,h:1}],notes:tests.ftp2?`Updated from FTP Test 2. Current threshold: ${zones.bike.ftp}W. Race power: ${zones.bike.race[0]}-${zones.bike.race[1]}W.`:tests.ftp1?`Updated from FTP Test 1. Current threshold: ${zones.bike.ftp}W. Target by race day: 188W+.`:`Starting threshold: ${zones.bike.ftp}W. Will update automatically when you complete a bike power test.`},
         {icon:DI.run,label:"Run targets",badge:`5K: ${A.run.fiveK}`,color:DC.run,zones:[{z:"Recovery jog",r:">6:10/km"},{z:"Easy running",r:"5:30-6:10/km"},{z:"Comfortably hard",r:"5:05-5:25/km"},{z:"Hard (threshold)",r:"4:36-5:05/km"},{z:"Fast intervals",r:"<4:36/km"},{z:"Ironman race pace",r:A.run.imPace+"/km",h:1}],notes:`Strongest discipline. Half marathon under 2 hours. Ironman marathon target: 4:10-4:45 (accounting for 6 hours on the bike beforehand).`},
-        {icon:DI.swim,label:"Swim targets",badge:`Pace: ${A.swim.current}`,color:DC.swim,zones:[{z:"Easy swimming",r:">2:20/100m"},{z:"Steady",r:"2:05-2:20/100m"},{z:"Firm effort",r:"1:55-2:05/100m"},{z:"Hard",r:"1:48-1:55/100m"},{z:"Race day pace",r:A.swim.racePace,h:1}],notes:`Current pace: ${A.swim.current}. Target by race day: ${A.swim.target}. Needs 8 seconds per 100m improvement — very achievable with consistent training.`},
+        {icon:DI.swim,label:"Swim targets",badge:`Pace: ${zones.swim.pace}/100m`,color:DC.swim,zones:[{z:"Easy swimming",r:`>${fmtSwimPace(zones.swim.z2[1])}/100m`},{z:"Steady",r:`${fmtSwimPace(zones.swim.z2[0])}-${fmtSwimPace(zones.swim.z2[1])}/100m`},{z:"Firm effort",r:`${fmtSwimPace(zones.swim.z3[0])}-${fmtSwimPace(zones.swim.z3[1])}/100m`},{z:"Hard",r:`${fmtSwimPace(zones.swim.z4[0])}-${fmtSwimPace(zones.swim.z4[1])}/100m`},{z:"Race day pace",r:`${fmtSwimPace(zones.swim.race[0])}-${fmtSwimPace(zones.swim.race[1])}/100m`,h:1}],notes:tests.swim400?`Updated from your 400m test. Current pace: ${zones.swim.pace}/100m. ${zones.swim.paceSec<=112?"You're on target for a strong race swim!":zones.swim.paceSec<=117?"Good progress — keep working the threshold sets.":"Keep building — the pace will come with consistent pool sessions."}`:`Starting pace: ${zones.swim.pace}/100m. Will update when you complete the 400m swim test in Week 1.`},
       ].map((sec,si)=>(<div key={si} style={{...S.card,border:`1px solid ${sec.color}33`,padding:12,marginBottom:8}}>
         <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:6}}><span style={{fontSize:15}}>{sec.icon}</span><span style={{fontSize:13,fontWeight:500}}>{sec.label}</span><span style={{...S.badge(sec.color),marginLeft:"auto"}}>{sec.badge}</span></div>
         {sec.zones.map((z,i)=><div key={i} style={{display:"flex",justifyContent:"space-between",padding:"3px 0",fontSize:12,fontWeight:z.h?500:400,color:z.h?sec.color:T.textMid}}><span>{z.z}</span><span>{z.r}</span></div>)}
