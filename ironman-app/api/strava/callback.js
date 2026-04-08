@@ -1,16 +1,16 @@
 import { createClient } from '@supabase/supabase-js';
-
+ 
 export default async function handler(req, res) {
   const { code, error } = req.query;
-
+ 
   if (error) {
     return res.redirect(302, '/?strava=denied');
   }
-
+ 
   if (!code) {
     return res.redirect(302, '/?strava=error');
   }
-
+ 
   try {
     const tokenResponse = await fetch('https://www.strava.com/oauth/token', {
       method: 'POST',
@@ -22,28 +22,32 @@ export default async function handler(req, res) {
         grant_type: 'authorization_code',
       }),
     });
-
+ 
     if (!tokenResponse.ok) {
       console.error('Strava token exchange failed:', await tokenResponse.text());
       return res.redirect(302, '/?strava=error');
     }
-
+ 
     const tokenData = await tokenResponse.json();
-
+ 
     const supabase = createClient(
       process.env.VITE_SUPABASE_URL,
       process.env.VITE_SUPABASE_ANON_KEY
     );
-
+ 
+    const athleteName = tokenData.athlete
+      ? tokenData.athlete.firstname + ' ' + tokenData.athlete.lastname
+      : 'Unknown';
+ 
     await supabase.from('strava_tokens').upsert({
       id: 'default',
       access_token: tokenData.access_token,
       refresh_token: tokenData.refresh_token,
       expires_at: tokenData.expires_at,
-      athlete_id: tokenData.athlete?.id,
-      athlete_name: \`\${tokenData.athlete?.firstname} \${tokenData.athlete?.lastname}\`,
+      athlete_id: tokenData.athlete ? tokenData.athlete.id : null,
+      athlete_name: athleteName,
     }, { onConflict: 'id' });
-
+ 
     return res.redirect(302, '/?strava=connected');
   } catch (err) {
     console.error('Strava callback error:', err);
