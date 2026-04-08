@@ -13,7 +13,7 @@ const A = {
 
 const RACE = new Date(2026,6,12);
 const DC = {swim:"#4ECDC4",bike:"#E8B44A",run:"#E8637A",strength:"#B68AE8",brick:"#6DC8A8",rest:"#555"};
-const DI = {swim:"\u{1F3CA}",bike:"\u{1F6B4}",run:"\u{1F3C3}",strength:"\u{1F3CB}\uFE0F",brick:"\u{1F517}",rest:"\u{1F634}"};
+const DI = {swim:"🏊",bike:"🚴",run:"🏃",strength:"🏋️",brick:"🔗",rest:"😴"};
 
 const T = {
   bg:"#110F18", card:"#1A1722", cardAlt:"#221F2D", border:"#2E2A3A",
@@ -39,7 +39,7 @@ function genPlan() {
 // ═══ WEEK 1 (9.5hrs) ═══
 {week:1,phase:"Build I",hrs:9.5,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Full rest. Foam roll or stretch for 20 minutes if you fancy it.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim test + pace work",desc:"Finding out your current pace, then practising holding it.",duration:55,distance:2.2,equipment:"Pool",rpe:"6-7/10",
+{day:"Tue",disc:"swim",title:"Swim test + pace work",desc:"Finding out your current pace, then practising holding it.",duration:55,distance:1.8,equipment:"Pool",rpe:"6-7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy swimming — mix of front crawl and backstroke, take your time"},
   {block:"Test",time:"~7min",detail:"Swim 400m as fast as you can. Time it. This tells us your current pace per 100m — we'll use this number to set targets for the next 13 weeks"},
@@ -58,7 +58,7 @@ structure:[
   {block:"Main set",time:"25min",detail:"25 minutes at 5:05-5:25/km — this is comfortably hard. You could talk in short sentences but wouldn't want to. Don't speed up on hills, just hold the effort steady"},
   {block:"Wind down",time:"10min",detail:"Easy jog. At the end, do 4 x 20-second fast strides with a walk back between each"}
 ],adjust:"If your legs are heavy from yesterday's turbo, just run the whole thing easy. Consistency matters more than one hard session."},
-{day:"Fri",disc:"swim",title:"Swim — building distance",desc:"Pushing past 2km for the first time in a structured session.",duration:55,distance:2.4,equipment:"Pool",rpe:"5-6/10",
+{day:"Fri",disc:"swim",title:"Swim — building distance",desc:"Pushing past 2km for the first time in a structured session.",duration:55,distance:1.8,equipment:"Pool",rpe:"5-6/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"300m easy, whatever stroke feels good"},
   {block:"Main set A",time:"22min",detail:"4 x 200m at a comfortable pace (around 2:05-2:20 per 100m). Take 20 seconds rest between each"},
@@ -83,7 +83,7 @@ structure:[
 // ═══ WEEK 2 (10hrs) ═══
 {week:2,phase:"Build I",hrs:10,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Full rest. Check your Strava data from last week. Any aches? 20 minutes of yoga if you want.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim — holding pace",desc:"Longer reps at your target pace. The 300m efforts are the engine for improvement.",duration:60,distance:2.6,equipment:"Pool",rpe:"7/10",
+{day:"Tue",disc:"swim",title:"Swim — holding pace",desc:"Longer reps at your target pace. The 300m efforts are the engine for improvement.",duration:60,distance:1.9,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy mixing strokes"},
   {block:"Main set",time:"30min",detail:"3 x 300m at your target pace (2:00 per 100m). Take 30 seconds rest between each. The key is keeping the same pace across all three — don't go hard on the first and die on the third"},
@@ -125,7 +125,7 @@ structure:[
 // ═══ WEEK 3 (10.5hrs) ═══
 {week:3,phase:"Build I",hrs:10.5,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. This is the biggest week of Build I. Get 8+ hours sleep and eat well.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim — longer pace reps",desc:"Longest reps at your target pace so far. Deliberately pushing past your comfort zone.",duration:65,distance:2.8,equipment:"Pool",rpe:"7/10",
+{day:"Tue",disc:"swim",title:"Swim — longer pace reps",desc:"Longest reps at your target pace so far. Deliberately pushing past your comfort zone.",duration:65,distance:2.0,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy mixed strokes"},
   {block:"Main set",time:"32min",detail:"2 x 500m at your target pace (2:00 per 100m). Take 2 minutes rest between. This is 10 lengths at pace — the furthest you've held this effort continuously. Focus on keeping your stroke smooth even when it gets hard"},
@@ -144,14 +144,14 @@ structure:[
   {block:"Main set",time:"30min",detail:"30 minutes continuous, split into three 10-minute blocks: first at 5:25/km, second at 5:15/km, third at 5:05/km. Each block a bit faster than the last. Use GPS to check your pace"},
   {block:"Wind down",time:"10min",detail:"Easy jog and walk"}
 ],adjust:"If the first block at 5:25 already feels hard, shift everything 10 seconds per km slower. The pattern — getting faster — matters more than the exact numbers."},
-{day:"Fri",disc:"swim",title:"Swim — speed and sighting",desc:"Faster short reps plus practising looking ahead (you'll need this in open water on race day).",duration:55,distance:2.6,equipment:"Pool",rpe:"6/10",
+{day:"Fri",disc:"swim",title:"Swim — speed and sighting",desc:"Faster short reps plus practising looking ahead (you'll need this in open water on race day).",duration:55,distance:1.9,equipment:"Pool",rpe:"6/10",
 structure:[
   {block:"Warm-up",time:"8min",detail:"300m easy"},
   {block:"Main set",time:"30min",detail:"12 x 75m at a firm effort (faster than your target pace but not sprinting). 15 seconds rest between each. Every third one, lift your head out of the water for 3 strokes to practise sighting — this is how you'll navigate in the open water"},
   {block:"Easy distance",time:"10min",detail:"500m continuous at an easy pace with pull buoy and paddles. The paddles make you feel the water better and build pulling power"},
   {block:"Wind down",time:"5min",detail:"200m easy"}
 ],adjust:"If 15 seconds rest isn't enough, take 20. These are meant to be hard but not flat-out."},
-{day:"Sat",disc:"bike",title:"Long ride — biggest of this block",desc:"4 hours on the Trek. Your longest ride so far in the plan.",duration:240,distance:108,equipment:"Trek road bike",rpe:"6/10",
+{day:"Sat",disc:"bike",title:"Long ride — biggest of this block",desc:"4 hours on the Trek. If you can, do a 15-20 minute easy open water swim before the ride (lake, lido, or sea) — even short open water sessions build race-day confidence.",duration:240,distance:108,equipment:"Trek road bike",rpe:"6/10",
 structure:[
   {block:"Build",time:"30min",detail:"Easy start, warm into the ride"},
   {block:"Main block",time:"160min",detail:"Steady riding with 3 x 12 minutes at 150-163W (harder effort) spread through hours 2 and 3. 5 minutes easy between each"},
@@ -170,7 +170,7 @@ structure:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Full rest. Recovery week — this is where your body actually gets fitter. Sleep is your best friend.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
 {day:"Tue",disc:"swim",title:"Easy swim",desc:"No structure, no clock. Just swim easy for 30 minutes.",duration:30,distance:1.5,equipment:"Pool",rpe:"3/10",
 structure:[{block:"Easy swim",time:"30min",detail:"1500m at whatever pace feels comfortable. Mix up your strokes. Practice a few drills if you want. No pressure."}],adjust:null},
-{day:"Wed",disc:"bike",title:"\u23F1 Bike power test",desc:"The first big test — finding out how much stronger you've got on the bike. Do this on the turbo so the numbers are consistent.",duration:55,distance:null,equipment:"Turbo + Swift",rpe:"10/10 for 20min",
+{day:"Wed",disc:"bike",title:"⏱ Bike power test",desc:"The first big test — finding out how much stronger you've got on the bike. Do this on the turbo so the numbers are consistent.",duration:55,distance:null,equipment:"Turbo + Swift",rpe:"10/10 for 20min",
 structure:[
   {block:"Warm-up",time:"15min",detail:"10 minutes easy spinning, then 3 x 1 minute fast spin (high cadence, light resistance), then 2 minutes steady"},
   {block:"THE TEST",time:"20min",detail:"20 minutes, as hard as you can sustain. Go all-out but pace it — start at around 172W and try to build if you can. Your average power for these 20 minutes, multiplied by 0.95, is your new bike fitness number. Record it in Strava"},
@@ -187,7 +187,7 @@ structure:[{block:"Easy run",time:"60min",detail:"5:30-6:10/km throughout. In th
 // ═══ WEEK 5 — Build II (10.5hrs) ═══
 {week:5,phase:"Build II",hrs:10.5,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. If your bike power went up in last week's test, your turbo targets should be updated — the harder efforts should be a bit higher now.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim — pace improvement",desc:"Same structure as Week 2 but with tighter rest. If you're fitter, the pace should feel more comfortable now.",duration:60,distance:2.8,equipment:"Pool",rpe:"7/10",
+{day:"Tue",disc:"swim",title:"Swim — pace improvement",desc:"Same structure as Week 2 but with tighter rest. If you're fitter, the pace should feel more comfortable now.",duration:60,distance:2.0,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy"},
   {block:"Main set",time:"32min",detail:"4 x 300m at your target pace (2:00 per 100m, or slightly faster if Week 1's test was quicker). 25 seconds rest between each. If the last two feel easier than in Week 2, you're improving"},
@@ -206,7 +206,7 @@ structure:[
   {block:"Transition",time:"~3min",detail:"Off the turbo. Running shoes on. Out the door. Time yourself — on race day you want this under 4 minutes"},
   {block:"Run",time:"25min",detail:"Your legs will feel terrible for the first 10 minutes — that's completely normal. Just run at whatever pace feels manageable. After 10 minutes, settle into your Ironman race pace (5:40-6:00/km) for the final 15 minutes"}
 ],adjust:"The run feeling awful at first is the whole point of this session. It gets better with practice — this is Ironman-specific fitness you can't get any other way."},
-{day:"Fri",disc:"swim",title:"Swim — breaking 3km",desc:"Your first 3km swim session. A mental milestone.",duration:65,distance:3.0,equipment:"Pool",rpe:"5-6/10",
+{day:"Fri",disc:"swim",title:"Swim — breaking 3km",desc:"Biggest swim yet. Building distance confidence. Do this in open water if possible — lake, lido, or sea. If not, pool is fine.",duration:65,distance:2.7,equipment:"Pool or open water",rpe:"5-6/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"500m easy"},
   {block:"Main set",time:"34min",detail:"1500m continuous at a comfortable pace (about 2:05-2:15 per 100m) — no stopping. Just keep swimming. Then 4 x 100m with paddles at a faster effort — the paddles build pulling strength. 15 seconds rest between each"},
@@ -228,7 +228,7 @@ structure:[
 // ═══ WEEK 6 (11hrs) ═══
 {week:6,phase:"Build II",hrs:11,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. Mid-build check: how's your sleep? Appetite? Mood? If all three are suffering, swap Thursday for an easy day.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim — race pace practice",desc:"Swimming faster than your current comfortable pace. Stretching toward your race-day target.",duration:65,distance:2.8,equipment:"Pool",rpe:"7/10",
+{day:"Tue",disc:"swim",title:"Swim — race pace practice",desc:"Swimming faster than your current comfortable pace. Stretching toward your race-day target.",duration:65,distance:2.0,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy"},
   {block:"Main set",time:"35min",detail:"3 x 400m at 1:55 per 100m — this is faster than your current comfortable pace, and that's the point. If 1:55 feels too fast, 1:58 is fine. 30 seconds rest between each. 200m easy between sets"},
@@ -247,13 +247,13 @@ structure:[
   {block:"Speed",time:"13min",detail:"5 x 400m at a fast pace (4:15-4:30/km) with a 200m slow jog between each. These are hard but short"},
   {block:"Wind down",time:"10min",detail:"Easy jog and walk"}
 ],adjust:null},
-{day:"Fri",disc:"swim",title:"Swim — sighting practice",desc:"Practising lifting your head to look where you're going. Essential for the open water swim on race day.",duration:60,distance:2.8,equipment:"Pool",rpe:"6/10",
+{day:"Fri",disc:"swim",title:"Swim — sighting practice",desc:"Practising lifting your head to look where you're going. Essential for the open water swim on race day.",duration:60,distance:2.9,equipment:"Pool",rpe:"6/10",
 structure:[
   {block:"Warm-up",time:"8min",detail:"300m easy"},
   {block:"Main set",time:"38min",detail:"3 x 800m at a firm, comfortable pace (2:00-2:05 per 100m). 1 minute rest between each. Every 200m, lift your head for 3 strokes to look forward — this is called sighting, and it's how you navigate in open water. It costs a bit of speed, so practise until it feels automatic"},
   {block:"Wind down",time:"8min",detail:"200m easy"}
 ],adjust:null},
-{day:"Sat",disc:"bike",title:"Long ride — biggest of Build II",desc:"5 hours on the Trek. This is the longest ride of this block. By hour 4 your legs will be heavy — that's the mental training.",duration:300,distance:138,equipment:"Trek road bike",rpe:"6/10",
+{day:"Sat",disc:"bike",title:"Long ride — biggest of Build II",desc:"5 hours on the Trek. If you can get an early morning open water swim in before (even 15-20 minutes), do it — the more time in open water before race day, the better.",duration:300,distance:138,equipment:"Trek road bike",rpe:"6/10",
 structure:[
   {block:"Build",time:"30min",detail:"Easy start"},
   {block:"Main block",time:"210min",detail:"Steady effort with 4 x 12 minutes harder (150-163W) in hours 2-4. Full race nutrition: 80g carbs per hour. Routes with some hills are good if possible"},
@@ -269,7 +269,7 @@ structure:[
 // ═══ WEEK 7 — Build II peak (11.5hrs) ═══
 {week:7,phase:"Build II",hrs:11.5,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. This is the biggest week of the entire plan. After this, everything gets easier.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Swim — pace check",desc:"5 x 300m at pace. If you can hold a faster pace than Week 2, your swim fitness has improved.",duration:70,distance:3.1,equipment:"Pool",rpe:"7/10",
+{day:"Tue",disc:"swim",title:"Swim — pace check",desc:"5 x 300m at pace. If you can hold a faster pace than Week 2, your swim fitness has improved.",duration:70,distance:2.3,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"400m easy"},
   {block:"Main set",time:"38min",detail:"5 x 300m at your target pace (aim for 1:58 per 100m or faster — compare to Weeks 2 and 5). 25 seconds rest between each. If you're holding 1:58 or better, you've taken 2 seconds off your pace in 6 weeks"},
@@ -309,7 +309,7 @@ structure:[
 {week:8,phase:"Absorb",hrs:6,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Full rest. You've just finished the hardest training block. Book a massage if you can.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
 {day:"Tue",disc:"swim",title:"Easy swim",desc:"No structure. Just swim easy.",duration:30,distance:1.5,equipment:"Pool",rpe:"3/10",structure:[{block:"Easy",time:"30min",detail:"1500m easy, mixed strokes. No clock, no intervals. Just enjoy being in the water."}],adjust:null},
-{day:"Wed",disc:"bike",title:"\u23F1 Bike power test 2",desc:"Same test as Week 4. How much has your bike fitness improved over 7 weeks of structured turbo work?",duration:55,distance:null,equipment:"Turbo + Swift",rpe:"10/10",
+{day:"Wed",disc:"bike",title:"⏱ Bike power test 2",desc:"Same test as Week 4. How much has your bike fitness improved over 7 weeks of structured turbo work?",duration:55,distance:null,equipment:"Turbo + Swift",rpe:"10/10",
 structure:[
   {block:"Warm-up",time:"15min",detail:"Same as Week 4: 10 minutes easy, 3 x 1 minute fast spins, 2 minutes steady"},
   {block:"THE TEST",time:"20min",detail:"20 minutes all-out. Same protocol. Compare your average power to Week 4. Target: 185W+ average. If you hit that, your race power becomes 140-148W — that's comfortably sub-6 hour bike territory"},
@@ -323,7 +323,7 @@ structure:[
 // ═══ WEEK 9 — Race-specific (12hrs) ═══
 {week:9,phase:"Race-specific",hrs:12,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. Everything from here is race-specific. Updated turbo targets should be loaded from the Week 8 test.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Full race distance swim",desc:"3.8km non-stop — the full Ironman swim distance. Your first time doing this in one go.",duration:85,distance:4.5,equipment:"Pool",rpe:"6-7/10",
+{day:"Tue",disc:"swim",title:"Full race distance swim",desc:"3.8km non-stop — the full Ironman swim distance. Your first time doing this in one go. If you can do this in open water, even better — but pool is absolutely fine.",duration:85,distance:4.5,equipment:"Pool or open water",rpe:"6-7/10",
 structure:[
   {block:"Warm-up",time:"10min",detail:"500m easy"},
   {block:"Main",time:"62min",detail:"3800m continuous at your race pace (1:52-1:58 per 100m). That's 76 lengths. Don't sprint the first few hundred metres — settle into your rhythm by 400m and hold it. Every 500m, sight (lift your head) for a few strokes to practise"},
@@ -337,13 +337,13 @@ structure:[
   {block:"Main",time:"45min",detail:"Continuous at 5:40-6:00/km. Walk for 20 seconds at the halfway point (simulating an aid station). Gel at 30 minutes"},
   {block:"Wind down",time:"10min",detail:"Easy jog"}
 ],adjust:null},
-{day:"Fri",disc:"swim",title:"Swim — fast 100s",desc:"Keeping your speed sharp with shorter, faster reps.",duration:50,distance:2.2,equipment:"Pool",rpe:"7/10",
+{day:"Fri",disc:"swim",title:"Swim — fast 100s",desc:"Keeping your speed sharp with shorter, faster reps.",duration:50,distance:1.6,equipment:"Pool",rpe:"7/10",
 structure:[
   {block:"Warm-up",time:"8min",detail:"300m easy"},
   {block:"Main",time:"30min",detail:"10 x 100m at a fast effort (1:48-1:55 per 100m — harder than race pace). 15 seconds rest between each. Hold your technique even when tired"},
   {block:"Wind down",time:"8min",detail:"300m easy"}
 ],adjust:null},
-{day:"Sat",disc:"bike",title:"Longest ride — 6 hours",desc:"Your biggest ride ever. This proves that 180km is within you.",duration:360,distance:168,equipment:"Trek road bike",rpe:"6/10",
+{day:"Sat",disc:"bike",title:"Longest ride — 6 hours",desc:"Your biggest ride ever. Get an early open water swim in before if possible (20 minutes, easy). This proves 180km is within you.",duration:360,distance:168,equipment:"Trek road bike",rpe:"6/10",
 structure:[{block:"Full ride",time:"360min",detail:"Steady effort with 4 x 18 minutes at race power spread through hours 2-5. Full race nutrition. Mentally rehearse everything — the flat sections, the hills, the headwind, the dark patch at hour 5 when you'll want to stop. You won't stop."}],adjust:null},
 {day:"Sun",disc:"run",title:"Long run on tired legs",desc:"Running on yesterday's 6-hour ride legs. This is the closest thing to race day you'll experience in training.",duration:150,distance:26,equipment:"Road",rpe:"6-7/10",
 structure:[
@@ -355,14 +355,14 @@ structure:[
 // ═══ WEEK 10 — Half-Distance Test (9hrs) ═══
 {week:10,phase:"Race-specific",hrs:9,days:[
 {day:"Mon",disc:"rest",title:"Rest day",desc:"Rest. Saturday is the biggest test of the whole plan — a half-distance Ironman. It tells us exactly where you are.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Short sharp swim",desc:"Quick session to stay sharp without tiring yourself before Saturday.",duration:45,distance:2.0,equipment:"Pool",rpe:"6/10",
+{day:"Tue",disc:"swim",title:"Short sharp swim",desc:"Quick session to stay sharp without tiring yourself before Saturday.",duration:45,distance:1.6,equipment:"Pool",rpe:"6/10",
 structure:[{block:"Session",time:"45min",detail:"400m warm-up. 4 x 200m at race pace with 20 seconds rest. 4 x 50m fast. 200m wind down."}],adjust:null},
 {day:"Wed",disc:"bike",title:"Easy turbo opener",desc:"Legs out. Stay fresh for Saturday.",duration:60,distance:null,equipment:"Turbo + Swift",rpe:"4/10",
 structure:[{block:"Opener",time:"60min",detail:"Easy spinning with 3 x 3 minutes at race power. Nothing more."}],adjust:null},
 {day:"Thu",disc:"run",title:"Easy run opener",desc:"Stay loose.",duration:30,distance:5.5,equipment:"Easy route",rpe:"4/10",
 structure:[{block:"Easy",time:"30min",detail:"Easy jog with 4 x 30 seconds at half marathon pace. That's it."}],adjust:null},
 {day:"Fri",disc:"rest",title:"Rest before test",desc:"FULL REST. Eat plenty of carbs today (8-10g per kg of bodyweight = roughly 650-800g of carbs). Drink lots of water. Lay out all your kit for tomorrow. Visualise the day.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Sat",disc:"brick",title:"\u23F1 HALF-DISTANCE TEST",desc:"The most important training day of the plan. Half Ironman distance, full race effort. This tells you everything about July 12.",duration:330,distance:113,equipment:"Pool → Trek → Road",rpe:"9/10",
+{day:"Sat",disc:"brick",title:"⏱ HALF-DISTANCE TEST",desc:"The most important training day of the plan. Half Ironman distance, full race effort. This tells you everything about July 12.",duration:330,distance:113,equipment:"Pool → Trek → Road",rpe:"9/10",
 structure:[
   {block:"Swim 1.9km",time:"~36-40min",detail:"In the pool. Pace yourself — aim for 1:53-2:00 per 100m. Don't sprint the first 200m"},
   {block:"Transition 1",time:"~4min",detail:"Get changed. Helmet on. Time it"},
@@ -382,27 +382,32 @@ structure:[{block:"Session",time:"65min",detail:"400m warm-up. 2 x 1000m at a co
 structure:[{block:"Session",time:"150min",detail:"30 minutes warm-up, then 3 x 22 minutes at race power with 10 minutes easy between each. Steady — no surges, no fading."}],adjust:null},
 {day:"Thu",disc:"run",title:"Run — getting faster throughout",desc:"Practising your race strategy: start conservative, finish strong.",duration:60,distance:11.5,equipment:"Road",rpe:"6-7/10",
 structure:[{block:"Session",time:"60min",detail:"15 minutes warm-up. Then 35 minutes getting progressively faster: 12 minutes at 5:40/km, 12 minutes at 5:25/km, 11 minutes at 5:10/km. 10 minutes easy wind down."}],adjust:null},
-{day:"Fri",disc:"swim",title:"Light swim",desc:"Easy session to stay sharp.",duration:45,distance:2.0,equipment:"Pool",rpe:"5/10",
+{day:"Fri",disc:"swim",title:"Light swim",desc:"Easy session to stay sharp.",duration:45,distance:1.5,equipment:"Pool",rpe:"5/10",
 structure:[{block:"Session",time:"45min",detail:"300m warm-up. 8 x 75m at a firm effort with 15 seconds rest. 400m easy swimming. 200m wind down."}],adjust:null},
 {day:"Sat",disc:"bike",title:"Last long ride",desc:"5 hours. Your final big ride. After today, the distance never comes back. Execute with precision.",duration:300,distance:140,equipment:"Trek road bike",rpe:"6/10",
 structure:[{block:"Session",time:"300min",detail:"Steady effort with 3 x 18 minutes at race power in hours 2-4. Full race nutrition. This is your final bike dress rehearsal."}],adjust:null},
-{day:"Sun",disc:"run",title:"Last long run",desc:"Final big run. Full dress rehearsal — race shoes, race belt, race nutrition. Everything exactly as July 12.",duration:135,distance:23.5,equipment:"Road",rpe:"6/10",
+{day:"Sun",disc:"run",title:"Last long run — then France",desc:"Final big run before the France holiday. Full dress rehearsal — race shoes, race belt, race nutrition. You fly out to France today or tomorrow.",duration:135,distance:23.5,equipment:"Road",rpe:"6/10",
 structure:[{block:"Session",time:"135min",detail:"80 minutes easy, 40 minutes at Ironman pace (5:40-6:00/km), 15 minutes easy wind down. The hay is in the barn after this one."}],adjust:null}
 ]},
-// ═══ WEEK 12 — Recovery (5hrs) ═══
-{week:12,phase:"Absorb",hrs:5,days:[
-{day:"Mon",disc:"rest",title:"Rest",desc:"Rest. The big work is done. Trust the 11 weeks you've banked.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Easy swim",desc:"Easy. No pressure.",duration:30,distance:1.2,equipment:"Pool",rpe:"3/10",structure:[{block:"Easy",time:"30min",detail:"1200m at whatever pace feels good. Mix strokes."}],adjust:null},
-{day:"Wed",disc:"bike",title:"Easy spin",desc:"No efforts.",duration:60,distance:25,equipment:"Turbo or Trek",rpe:"3/10",structure:[{block:"Easy",time:"60min",detail:"Flat and easy. 103-140W. Enjoy the ride."}],adjust:null},
-{day:"Thu",disc:"run",title:"Easy run",desc:"Keep moving.",duration:30,distance:5.5,equipment:"Road",rpe:"3/10",structure:[{block:"Easy",time:"30min",detail:"Easy jog. 4 x 20-second strides at the end."}],adjust:null},
-{day:"Fri",disc:"rest",title:"Stretching",desc:"30 minutes of yoga or stretching. Hip flexors, hamstrings, shoulders.",duration:30,distance:null,equipment:"Home or gym",rpe:"2/10",structure:[{block:"Mobility",time:"30min",detail:"Easy stretching. Focus on anything that feels tight."}],adjust:null},
-{day:"Sat",disc:"bike",title:"Moderate ride",desc:"Quick reminder of race effort.",duration:75,distance:32,equipment:"Trek or turbo",rpe:"4/10",structure:[{block:"Ride",time:"75min",detail:"Easy effort with 2 x 5 minutes at race power. Just a reminder of what it feels like."}],adjust:null},
-{day:"Sun",disc:"run",title:"Moderate run",desc:"Easy with a couple of faster bits.",duration:45,distance:8,equipment:"Road",rpe:"4/10",structure:[{block:"Run",time:"45min",detail:"Easy jog with 2 x 3 minutes at Ironman pace (5:40-6:00/km)."}],adjust:null}
+// ═══ WEEK 12 — France holiday (4.5hrs) ═══
+{week:12,phase:"Absorb",hrs:4.5,days:[
+{day:"Mon",disc:"rest",title:"Rest — France",desc:"Settle in. Recovery week on holiday — the big training is done. Enjoy France, eat well, stay loose. Running and swimming only this week.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
+{day:"Tue",disc:"run",title:"Easy holiday run",desc:"Morning run before the day heats up. Explore the local area.",duration:40,distance:7,equipment:"Road or trail",rpe:"4/10",
+structure:[{block:"Easy run",time:"40min",detail:"Easy pace, 5:30-6:10/km. Explore the area — find a nice route you can repeat later in the week. Flat or gently rolling. Enjoy the scenery, this isn't a hard session."}],adjust:"If it's too hot, go early (before 8am) or skip and go tomorrow instead."},
+{day:"Wed",disc:"swim",title:"Holiday swim — open water or pool",desc:"If there's a lake, river, or sea nearby, swim in it. Otherwise find a local pool.",duration:35,distance:1.5,equipment:"Open water or pool",rpe:"4/10",
+structure:[{block:"Easy swim",time:"35min",detail:"1500m easy. If open water: stay close to shore, swim parallel to the beach. Practice sighting. If pool: easy mixed strokes, no intervals. This is active recovery with a bit of open water practice."}],adjust:"No swim available? Do a 30-minute easy run or just rest. Don't stress about finding a pool."},
+{day:"Thu",disc:"run",title:"Tempo run — holiday",desc:"One quality session this week. Morning run with a faster block.",duration:45,distance:8,equipment:"Road or trail",rpe:"5-6/10",
+structure:[{block:"Easy start",time:"15min",detail:"5:30-6:10/km warm-up"},{block:"Tempo",time:"20min",detail:"5:05-5:25/km — comfortably hard. This is the only real effort of the holiday week"},{block:"Wind down",time:"10min",detail:"Easy jog"}],adjust:"Too hot? Shift the whole thing 15 seconds per km slower. The effort matters more than the pace in the heat."},
+{day:"Fri",disc:"rest",title:"Rest day",desc:"Full rest. Explore, eat, relax. Maybe some stretching or yoga if you feel like it.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
+{day:"Sat",disc:"swim",title:"Open water swim",desc:"If there's open water available, this is a great chance to practice in a different environment to the pool.",duration:30,distance:1.0,equipment:"Open water or pool",rpe:"4/10",
+structure:[{block:"Open water",time:"30min",detail:"1000m easy. If sea or lake: practice sighting every 8-10 strokes, swim parallel to shore. Get comfortable in open water — the race swim is in open water so every session outside a pool helps. If no open water, easy pool swim."}],adjust:null},
+{day:"Sun",disc:"run",title:"Long-ish run — last day in France",desc:"Longest run of the holiday week. Nothing crazy — just accumulate time on your feet.",duration:60,distance:10.5,equipment:"Road or trail",rpe:"4-5/10",
+structure:[{block:"Easy run",time:"60min",detail:"5:30-6:10/km throughout. Include 2 x 3 minutes at Ironman pace (5:40-6:00/km) in the second half to keep the legs honest. Walk 5 minutes at the end. Travel home tomorrow — taper week starts."}],adjust:null}
 ]},
 // ═══ WEEK 13 — Taper (4hrs) ═══
 {week:13,phase:"Taper",hrs:4,days:[
 {day:"Mon",disc:"rest",title:"Rest",desc:"Rest. You'll feel anxious about the reduced training — this is completely normal. Your fitness is banked. It doesn't disappear in a week. Start sorting travel, registration, gear bags.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Tue",disc:"swim",title:"Short swim opener",desc:"Quick and sharp.",duration:25,distance:1.2,equipment:"Pool",rpe:"5/10",structure:[{block:"Session",time:"25min",detail:"300m warm-up. 4 x 100m at race pace with 15 seconds rest. 200m wind down."}],adjust:null},
+{day:"Tue",disc:"swim",title:"Short swim opener",desc:"Quick and sharp.",duration:25,distance:0.9,equipment:"Pool",rpe:"5/10",structure:[{block:"Session",time:"25min",detail:"300m warm-up. 4 x 100m at race pace with 15 seconds rest. 200m wind down."}],adjust:null},
 {day:"Wed",disc:"bike",title:"Short turbo opener",desc:"Quick legs.",duration:50,distance:null,equipment:"Turbo + Swift",rpe:"4/10",structure:[{block:"Session",time:"50min",detail:"Easy spinning with 3 x 3 minutes at race power. High cadence (95+rpm). Everything should feel easy — that's the taper working."}],adjust:null},
 {day:"Thu",disc:"run",title:"Short run opener",desc:"Stay loose.",duration:25,distance:4.5,equipment:"Road",rpe:"4/10",structure:[{block:"Session",time:"25min",detail:"Easy jog with 3 x 2 minutes at Ironman pace. You'll feel like you need more. You don't."}],adjust:null},
 {day:"Fri",disc:"swim",title:"Final swim",desc:"Last time in the pool.",duration:15,distance:0.6,equipment:"Pool",rpe:"3/10",structure:[{block:"Easy",time:"15min",detail:"600m easy. Visualise the swim start while you swim."}],adjust:null},
@@ -417,7 +422,7 @@ structure:[{block:"Session",time:"135min",detail:"80 minutes easy, 40 minutes at
 {day:"Thu",disc:"run",title:"Course jog",desc:"Last session before race day.",duration:15,distance:2.5,equipment:"Race venue",rpe:"3/10",structure:[{block:"Easy",time:"15min",detail:"Easy jog on the run course. Note landmarks. Visualise yourself running strong through the finish."}],adjust:null},
 {day:"Fri",disc:"rest",title:"Pre-race rest",desc:"REST. Bike racked in transition. Gear bags checked. Race morning kit laid out. Gels taped to the top tube. Flat bottles ready. Early dinner — something you know works. Bed by 9pm.",duration:0,distance:null,equipment:null,structure:null,rpe:null},
 {day:"Sat",disc:"rest",title:"Pre-race",desc:"10 minute jog only if you need to burn nervous energy. Otherwise full rest. Race briefing. High carb, low fibre dinner. Alarm set.",duration:10,distance:null,equipment:null,structure:null,rpe:null},
-{day:"Sun",disc:"brick",title:"\u{1F3C1} RACE DAY — IRONMAN",desc:"3.8km swim \u2192 180km bike \u2192 42.2km run",duration:720,distance:226,equipment:"Everything",rpe:"Everything you've got",
+{day:"Sun",disc:"brick",title:"🏁 RACE DAY — IRONMAN",desc:"3.8km swim → 180km bike → 42.2km run",duration:720,distance:226,equipment:"Everything",rpe:"Everything you've got",
 structure:[
   {block:"Swim 3.8km",time:"1:12-1:18",detail:"Easy start — don't sprint off the line. Find your rhythm by 400m. Sight every 8-10 strokes. Hold 1:52-1:58 per 100m. Don't fight for position, your race is against the clock not other people"},
   {block:"Transition 1",time:"5:00",detail:"Stay calm. Wetsuit off. Helmet on. Shoes on. Go. Don't rush — smooth is fast"},
@@ -437,13 +442,53 @@ const saveD=(k,d)=>localStorage.setItem(k,JSON.stringify(d));
 const getCW=()=>{const n=new Date();return Math.max(0,PLAN.findIndex(w=>n>=w.startDate&&n<=w.endDate))};
 const fD=d=>d.toLocaleDateString("en-GB",{day:"numeric",month:"short"});
 const dU=()=>Math.max(0,Math.ceil((RACE-new Date())/864e5));
-const mH=m=>{if(!m)return"\u2014";const h=Math.floor(m/60),mn=m%60;return h>0?`${h}h ${mn}m`:`${mn}m`};
+const mH=m=>{if(!m)return"—";const h=Math.floor(m/60),mn=m%60;return h>0?`${h}h ${mn}m`:`${mn}m`};
 
 const S={card:{background:T.card,borderRadius:12,border:`1px solid ${T.border}`,overflow:"hidden"},cardAlt:{background:T.cardAlt,borderRadius:10,padding:"8px 10px"},badge:c=>({fontSize:10,fontWeight:500,padding:"2px 8px",borderRadius:20,background:c+"22",color:c,border:`1px solid ${c}33`}),btn:{background:"none",border:`1px solid ${T.border}`,borderRadius:8,cursor:"pointer",fontFamily:"inherit",color:T.text}};
 
 export default function App(){
   const[tab,setTab]=useState("plan");const[cw,setCw]=useState(getCW());const[comp,setComp]=useState(()=>loadD("im5-c",{}));const[met,setMet]=useState(()=>loadD("im5-m",{}));const[rpe,setRpe]=useState(()=>loadD("im5-r",{}));const[sel,setSel]=useState(null);const[modal,setModal]=useState(null);
+  const[strava,setStrava]=useState({connected:false,syncing:false,athlete:null,activities:[],lastSync:null,error:null});
   useEffect(()=>{saveD("im5-c",comp)},[comp]);useEffect(()=>{saveD("im5-m",met)},[met]);useEffect(()=>{saveD("im5-r",rpe)},[rpe]);
+
+  // Strava: check connection on load & handle OAuth redirect
+  useEffect(()=>{
+    const params=new URLSearchParams(window.location.search);
+    const stravaStatus=params.get('strava');
+    if(stravaStatus==='connected'){window.history.replaceState({},'','/');syncStrava();}
+    else if(stravaStatus==='denied'||stravaStatus==='error'){setStrava(s=>({...s,error:stravaStatus}));window.history.replaceState({},'','/');}
+    else{fetch('/api/strava/sync').then(r=>r.json()).then(d=>{if(d.connected)setStrava(s=>({...s,connected:true,athlete:d.athlete,activities:d.activities,lastSync:d.lastSync}))}).catch(()=>{})}
+  },[]);
+
+  const syncStrava=useCallback(async()=>{
+    setStrava(s=>({...s,syncing:true,error:null}));
+    try{
+      const r=await fetch('/api/strava/sync');const d=await r.json();
+      if(d.connected){
+        setStrava({connected:true,syncing:false,athlete:d.athlete,activities:d.activities,lastSync:d.lastSync,error:null});
+        if(d.activities?.length)autoMatchActivities(d.activities);
+      }else{setStrava(s=>({...s,syncing:false,error:'Not connected'}))}
+    }catch(e){setStrava(s=>({...s,syncing:false,error:e.message}))}
+  },[comp,met]);
+
+  const autoMatchActivities=useCallback((activities)=>{
+    const newComp={...comp};const newMet={...met};let matched=0;
+    activities.forEach(act=>{
+      if(!act.type||!act.date)return;
+      const actDate=new Date(act.date);
+      PLAN.forEach((week,wi)=>{
+        week.days.forEach((day,di)=>{
+          if(day.disc==="rest"||day.disc==="strength")return;
+          const dayDate=new Date(week.startDate);dayDate.setDate(dayDate.getDate()+di);
+          if(actDate.toDateString()===dayDate.toDateString()){
+            const ok=(act.type==="bike"&&(day.disc==="bike"||day.disc==="brick"))||(act.type==="run"&&(day.disc==="run"||day.disc==="brick"))||(act.type===day.disc);
+            if(ok){const key=`${wi}-${di}`;if(!newComp[key])newComp[key]=Date.now();newMet[key]={dur:act.duration||"",dist:act.distance||"",hr:act.avgHR||"",power:act.avgPower||"",pace:act.avgPace||"",cal:act.calories||"",notes:`Synced from ${act.source||"Strava"}: ${act.name}`,fromStrava:true};matched++}
+          }
+        });
+      });
+    });
+    if(matched>0){setComp(newComp);setMet(newMet)}
+  },[comp,met]);
   const tog=useCallback((wi,di)=>{const k=`${wi}-${di}`;setComp(p=>{const n={...p};n[k]?delete n[k]:n[k]=Date.now();return n})},[]);
   const w=PLAN[cw];const tc=Object.keys(comp).length;const tw=PLAN.reduce((a,w)=>a+w.days.filter(d=>d.disc!=="rest").length,0);
   const ws=useMemo(()=>{if(!w)return{};const s={swim:0,bike:0,run:0,strength:0,brick:0,tMin:0,tDist:0,done:0,total:0};w.days.forEach((d,i)=>{if(d.disc==="rest")return;s.total++;s.tMin+=d.duration||0;s.tDist+=d.distance||0;if(d.disc in s)s[d.disc]+=d.duration||0;if(comp[`${cw}-${i}`])s.done++});return s},[w,cw,comp]);
@@ -456,11 +501,11 @@ export default function App(){
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
     <style>{`*{box-sizing:border-box}::-webkit-scrollbar{display:none}input,textarea,select{color:${T.text};background:${T.cardAlt};border:1px solid ${T.border};border-radius:8px;padding:7px 8px;font-family:inherit;font-size:13px;width:100%}button:active{opacity:0.8}`}</style>
     <div style={{padding:"1.25rem 1rem 0.75rem",textAlign:"center"}}>
-      <div style={{fontFamily:"'Space Mono',monospace",fontSize:9,letterSpacing:3,textTransform:"uppercase",color:T.textDim}}>Ironman \u00B7 July 12 \u00B7 Finish strong</div>
+      <div style={{fontFamily:"'Space Mono',monospace",fontSize:9,letterSpacing:3,textTransform:"uppercase",color:T.textDim}}>Ironman · July 12 · Finish strong</div>
       <div style={{fontSize:36,fontWeight:500,lineHeight:1.1,marginTop:4,color:T.accent}}>{dU()}<span style={{fontSize:14,fontWeight:400,color:T.textMid,marginLeft:6}}>days to go</span></div>
       <div style={{display:"flex",gap:5,justifyContent:"center",marginTop:8,flexWrap:"wrap"}}>
-        <span style={S.badge(DC.bike)}>FTP {A.bike.ftp}\u2192{A.bike.ftpTarget}W</span>
-        <span style={S.badge(DC.swim)}>Pace 2:00\u21921:52</span>
+        <span style={S.badge(DC.bike)}>FTP {A.bike.ftp}→{A.bike.ftpTarget}W</span>
+        <span style={S.badge(DC.swim)}>Pace 2:00→1:52</span>
         <span style={S.badge(T.success)}>{Math.round(tc/Math.max(tw,1)*100)}% complete</span>
       </div>
     </div>
@@ -470,27 +515,27 @@ export default function App(){
 
     {tab==="plan"&&<div style={{padding:"1rem"}}>
       <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
-        <button onClick={()=>{setCw(Math.max(0,cw-1));setSel(null)}} disabled={cw===0} style={{...S.btn,width:34,height:34,borderRadius:"50%",fontSize:14}}>\u2190</button>
-        <div style={{textAlign:"center"}}><div style={{fontSize:15,fontWeight:500}}>Week {w.week} <span style={{fontWeight:400,fontSize:12,color:T.textMid}}>of 14</span></div><div style={{fontSize:10,color:T.textDim}}>{fD(w.startDate)} \u2013 {fD(w.endDate)} \u00B7 ~{w.hrs}hrs</div></div>
-        <button onClick={()=>{setCw(Math.min(13,cw+1));setSel(null)}} disabled={cw===13} style={{...S.btn,width:34,height:34,borderRadius:"50%",fontSize:14}}>\u2192</button>
+        <button onClick={()=>{setCw(Math.max(0,cw-1));setSel(null)}} disabled={cw===0} style={{...S.btn,width:34,height:34,borderRadius:"50%",fontSize:14}}>←</button>
+        <div style={{textAlign:"center"}}><div style={{fontSize:15,fontWeight:500}}>Week {w.week} <span style={{fontWeight:400,fontSize:12,color:T.textMid}}>of 14</span></div><div style={{fontSize:10,color:T.textDim}}>{fD(w.startDate)} – {fD(w.endDate)} · ~{w.hrs}hrs</div></div>
+        <button onClick={()=>{setCw(Math.min(13,cw+1));setSel(null)}} disabled={cw===13} style={{...S.btn,width:34,height:34,borderRadius:"50%",fontSize:14}}>→</button>
       </div>
       <div style={{display:"flex",alignItems:"flex-start",gap:6,marginBottom:8}}>
         <span style={S.badge(pc[w.phase]||"#666")}>{w.phase}</span>
         <span style={{fontSize:11,color:T.textMid,lineHeight:1.5}}>{w.phaseDesc}</span>
       </div>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr",gap:5,marginBottom:10}}>
-        {[{l:"Time",v:mH(ws.tMin)},{l:"Dist",v:ws.tDist?`${Math.round(ws.tDist)}km`:"\u2014"},{l:"Done",v:`${ws.done}/${ws.total}`},{l:"RPE",v:weekRPE?`${weekRPE}/10`:"\u2014"}].map((s,i)=>(<div key={i} style={{...S.cardAlt,textAlign:"center"}}><div style={{fontSize:9,color:T.textDim,textTransform:"uppercase",letterSpacing:0.5}}>{s.l}</div><div style={{fontSize:14,fontWeight:500,marginTop:2}}>{s.v}</div></div>))}
+        {[{l:"Time",v:mH(ws.tMin)},{l:"Dist",v:ws.tDist?`${Math.round(ws.tDist)}km`:"—"},{l:"Done",v:`${ws.done}/${ws.total}`},{l:"RPE",v:weekRPE?`${weekRPE}/10`:"—"}].map((s,i)=>(<div key={i} style={{...S.cardAlt,textAlign:"center"}}><div style={{fontSize:9,color:T.textDim,textTransform:"uppercase",letterSpacing:0.5}}>{s.l}</div><div style={{fontSize:14,fontWeight:500,marginTop:2}}>{s.v}</div></div>))}
       </div>
       <div style={{display:"flex",flexDirection:"column",gap:5}}>
-        {w.days.map((d,di)=>{const ic=!!comp[`${cw}-${di}`];const dm=met[`${cw}-${di}`];const ie=sel===`${cw}-${di}`;const ks=d.title.includes("\u23F1")||d.title.includes("\u{1F3C1}")||d.title.includes("HALF");
+        {w.days.map((d,di)=>{const ic=!!comp[`${cw}-${di}`];const dm=met[`${cw}-${di}`];const ie=sel===`${cw}-${di}`;const ks=d.title.includes("⏱")||d.title.includes("🏁")||d.title.includes("HALF");
           return(<div key={di} style={{...S.card,border:ks?`1.5px solid ${DC[d.disc]||T.accent}`:ic?`1px solid ${T.success}33`:`1px solid ${T.border}`,opacity:d.disc==="rest"?0.55:1}}>
             <div onClick={()=>setSel(ie?null:`${cw}-${di}`)} style={{padding:"10px 12px",cursor:"pointer",display:"flex",alignItems:"center",gap:8}}>
               <div style={{width:36,height:36,borderRadius:"50%",background:(DC[d.disc]||"#666")+"22",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,flexShrink:0}}>{DI[d.disc]}</div>
               <div style={{flex:1,minWidth:0}}>
                 <div style={{display:"flex",alignItems:"center",gap:5}}><span style={{fontSize:9,fontWeight:500,color:DC[d.disc]||T.textMid,textTransform:"uppercase",letterSpacing:0.5}}>{d.day}</span><span style={{fontSize:12,fontWeight:500,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{d.title}</span></div>
-                <div style={{fontSize:10,color:T.textDim,marginTop:1}}>{d.disc!=="rest"?<>{mH(d.duration)}{d.distance?` \u00B7 ${d.distance}km`:""}{d.equipment?` \u00B7 ${d.equipment}`:""}</>:"Recovery"}</div>
+                <div style={{fontSize:10,color:T.textDim,marginTop:1}}>{d.disc!=="rest"?<>{mH(d.duration)}{d.distance?` · ${d.distance}km`:""}{d.equipment?` · ${d.equipment}`:""}</>:"Recovery"}</div>
               </div>
-              {d.disc!=="rest"&&<button onClick={e=>{e.stopPropagation();tog(cw,di)}} style={{width:24,height:24,borderRadius:"50%",border:`2px solid ${ic?T.success:T.border}`,background:ic?T.success:"transparent",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",color:ic?"#fff":"transparent",fontSize:12,flexShrink:0}}>{ic?"\u2713":""}</button>}
+              {d.disc!=="rest"&&<button onClick={e=>{e.stopPropagation();tog(cw,di)}} style={{width:24,height:24,borderRadius:"50%",border:`2px solid ${ic?T.success:T.border}`,background:ic?T.success:"transparent",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",color:ic?"#fff":"transparent",fontSize:12,flexShrink:0}}>{ic?"✓":""}</button>}
             </div>
             {ie&&<div style={{padding:"0 12px 12px",borderTop:`1px solid ${T.borderLight}`}}>
               {d.structure&&<div style={{marginTop:8}}>{d.structure.map((b,bi)=>(<div key={bi} style={{marginBottom:8}}><div style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}><span style={{fontSize:10,fontWeight:500,color:DC[d.disc]||T.accent,textTransform:"uppercase"}}>{b.block}</span><span style={{fontSize:10,color:T.textDim}}>{b.time}</span></div><div style={{fontSize:12,lineHeight:1.65,color:T.textMid}}>{b.detail}</div></div>))}</div>}
@@ -520,11 +565,28 @@ export default function App(){
       <div style={{...S.card,padding:12,marginBottom:8}}><div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:4}}>Coach notes</div><p style={{fontSize:12,lineHeight:1.65,margin:0}}>{w.phaseDesc}</p></div>
       <div style={{...S.card,padding:12,marginBottom:8}}>
         <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:6}}>Key benchmarks</div>
-        {[{wk:1,l:"Swim speed test (400m timed)"},{wk:4,l:"Bike power test 1 \u2014 target 178W+"},{wk:8,l:"Bike power test 2 \u2014 target 185W+"},{wk:10,l:"Half-distance test \u2014 under 5:45"},{wk:14,l:"\u{1F3C1} Race day \u2014 12:00-13:00"}].map((b,i)=>(<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"4px 0",fontSize:12,borderBottom:i<4?`1px solid ${T.borderLight}`:"none"}}><span style={{width:18,height:18,borderRadius:"50%",border:`1.5px solid ${cw>=b.wk-1?T.success:T.border}`,background:cw>=b.wk-1?T.successDim:"transparent",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,color:T.success,flexShrink:0}}>{cw>=b.wk-1?"\u2713":""}</span><span style={{color:T.textDim,fontSize:11}}>W{b.wk}</span><span>{b.l}</span></div>))}
+        {[{wk:1,l:"Swim speed test (400m timed)"},{wk:4,l:"Bike power test 1 — target 178W+"},{wk:8,l:"Bike power test 2 — target 185W+"},{wk:10,l:"Half-distance test — under 5:45"},{wk:14,l:"🏁 Race day — 12:00-13:00"}].map((b,i)=>(<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"4px 0",fontSize:12,borderBottom:i<4?`1px solid ${T.borderLight}`:"none"}}><span style={{width:18,height:18,borderRadius:"50%",border:`1.5px solid ${cw>=b.wk-1?T.success:T.border}`,background:cw>=b.wk-1?T.successDim:"transparent",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,color:T.success,flexShrink:0}}>{cw>=b.wk-1?"✓":""}</span><span style={{color:T.textDim,fontSize:11}}>W{b.wk}</span><span>{b.l}</span></div>))}
       </div>
       <div style={{...S.card,padding:12}}>
-        <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:6}}>Equipment</div>
-        {Object.entries(A.equipment).map(([k,v],i)=><div key={i} style={{fontSize:12,color:T.textMid,padding:"3px 0"}}><span style={{color:T.text,fontWeight:500}}>{k==="bikeIndoor"?"Turbo":k==="bikeOutdoor"?"Road bike":k.charAt(0).toUpperCase()+k.slice(1)}:</span> {v}</div>)}
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
+          <div style={{fontSize:10,fontWeight:500,color:T.textMid}}>Strava</div>
+          {strava.connected&&<span style={{fontSize:9,color:T.success}}>Connected{strava.athlete?` — ${strava.athlete}`:""}</span>}
+        </div>
+        {!strava.connected?(
+          <div style={{textAlign:"center",padding:"8px 0"}}>
+            <div style={{fontSize:12,color:T.textMid,marginBottom:8,lineHeight:1.5}}>Connect Strava to auto-sync your turbo rides and runs. Bike and run workouts get ticked off and metrics filled in automatically.</div>
+            <button onClick={()=>window.location.href='/api/strava/auth'} style={{padding:"8px 20px",fontSize:12,fontWeight:500,border:"none",borderRadius:8,background:"#FC4C02",color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>Connect Strava</button>
+            {strava.error&&<div style={{fontSize:11,color:"#E85454",marginTop:6}}>Connection failed — try again</div>}
+          </div>
+        ):(
+          <div>
+            <div style={{display:"flex",gap:5,marginBottom:8}}>
+              <button onClick={syncStrava} disabled={strava.syncing} style={{...S.btn,flex:1,padding:"7px 0",fontSize:11,fontWeight:500}}>{strava.syncing?"Syncing...":"Sync now"}</button>
+            </div>
+            {strava.lastSync&&<div style={{fontSize:10,color:T.textDim}}>Last synced: {new Date(strava.lastSync).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}</div>}
+            {strava.activities?.length>0&&<div style={{fontSize:10,color:T.textMid,marginTop:4}}>{strava.activities.length} activities found — {strava.activities.filter(a=>a.isVirtual).length} from Swift/Turbo</div>}
+          </div>
+        )}
       </div>
     </div>}
 
@@ -551,7 +613,7 @@ export default function App(){
 
     {tab==="profile"&&<div style={{padding:"1rem"}}>
       <div style={{...S.card,padding:12,marginBottom:8}}>
-        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:8}}><div style={{width:42,height:42,borderRadius:"50%",background:T.accent+"22",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:500,fontSize:15,color:T.accent}}>A</div><div><div style={{fontSize:15,fontWeight:500}}>{A.name}</div><div style={{fontSize:11,color:T.textMid}}>{A.age} \u00B7 {A.weight}kg \u00B7 {A.height}</div></div></div>
+        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:8}}><div style={{width:42,height:42,borderRadius:"50%",background:T.accent+"22",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:500,fontSize:15,color:T.accent}}>A</div><div><div style={{fontSize:15,fontWeight:500}}>{A.name}</div><div style={{fontSize:11,color:T.textMid}}>{A.age} · {A.weight}kg · {A.height}</div></div></div>
         <div style={{fontSize:12,lineHeight:1.6,color:T.textMid}}>Trained for Ironman Nov 2025 (didn't finish — bike accident). Been training since Jan 2026. Confident on bike after Mallorca. Uses Wahoo turbo with Swift feeding into Strava, Trek road bike outdoors, 50m pool, full gym.</div>
       </div>
       {[
@@ -566,7 +628,7 @@ export default function App(){
     </div>}
 
     {modal&&<div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.6)",display:"flex",alignItems:"flex-end",justifyContent:"center",zIndex:100}} onClick={()=>setModal(null)}><div onClick={e=>e.stopPropagation()} style={{background:T.card,borderRadius:"16px 16px 0 0",width:"100%",maxWidth:480,padding:18,maxHeight:"80vh",overflowY:"auto"}}>
-      <div style={{display:"flex",justifyContent:"space-between",marginBottom:12}}><div><div style={{fontSize:14,fontWeight:500}}>{modal.day.title}</div><div style={{fontSize:11,color:T.textMid}}>Log your workout</div></div><button onClick={()=>setModal(null)} style={{...S.btn,width:28,height:28,borderRadius:"50%",fontSize:14}}>\u2715</button></div>
+      <div style={{display:"flex",justifyContent:"space-between",marginBottom:12}}><div><div style={{fontSize:14,fontWeight:500}}>{modal.day.title}</div><div style={{fontSize:11,color:T.textMid}}>Log your workout</div></div><button onClick={()=>setModal(null)} style={{...S.btn,width:28,height:28,borderRadius:"50%",fontSize:14}}>✕</button></div>
       <MetricForm existing={met[`${modal.wi}-${modal.di}`]} onSave={data=>{setMet(p=>({...p,[`${modal.wi}-${modal.di}`]:data}));setModal(null)}}/>
     </div></div>}
   </div>);
