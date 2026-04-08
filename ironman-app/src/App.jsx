@@ -108,13 +108,14 @@ structure:[
   {block:"Upper body & core",time:"15min",detail:"Cable rows: 3 x 12. Press-ups: 3 x 10. Then a core circuit: 30 seconds of dead bugs, 30 seconds of pallof press each side, 30 seconds of side plank each side. Do the circuit 3 times"},
   {block:"Stretching",time:"10min",detail:"Hip flexor stretch 2 minutes each side, pigeon stretch 1 minute each side, some thoracic spine rotations"}
 ],adjust:"Keep the gym light when bike and run volume is high. This is extra credit — never sacrifice a key swim/bike/run session for the gym."},
-{day:"Sat",disc:"bike",title:"Long ride",desc:"Longest ride so far. Building on what you did in Mallorca.",duration:210,distance:92,equipment:"Trek road bike",rpe:"5-6/10",
+{day:"Sat",disc:"bike",title:"Morning OW swim + long ride",desc:"Double session day. Morning: open water swim (lake, lido, or sea). Afternoon: longest ride so far.",duration:240,distance:92,equipment:"Open water + Trek road bike",rpe:"5-6/10",
 structure:[
-  {block:"Build",time:"30min",detail:"Easy warm-up, settle into your rhythm"},
-  {block:"Main block",time:"140min",detail:"Steady at 103-140W. Every 30 minutes or so, do 10 minutes at around 150W. That's 4 efforts total in this block. Try holding an aero position during these harder bits if the road is flat enough"},
-  {block:"Eating & drinking",time:"ongoing",detail:"70g carbs per hour from 30 minutes in. 500-600ml of fluid per hour. This IS race practice — if it works today, use it on July 12"},
-  {block:"Final hour",time:"40min",detail:"Easy riding home. Spin the legs out"}
-],adjust:"Bad weather? Do 3 hours on the turbo with the same effort structure. Outdoor is preferred but turbo works."},
+  {block:"Morning OW swim",time:"25min",detail:"1000m easy in open water — lake, lido, or sea. Sight every 8-10 strokes. Swim parallel to shore. Stay relaxed, get comfortable in the water. This is about building confidence, not fitness. If no open water available, skip this and just do the ride"},
+  {block:"Bike warm-up",time:"30min",detail:"Easy warm-up, settle into your rhythm"},
+  {block:"Main ride",time:"140min",detail:"Steady at 103-140W. Every 30 minutes or so, do 10 minutes at around 150W. That's 4 efforts total in this block. Try holding an aero position during these harder bits if the road is flat enough"},
+  {block:"Eating & drinking",time:"ongoing",detail:"70g carbs per hour from 30 minutes in. 500-600ml of fluid per hour. This IS race practice"},
+  {block:"Final hour",time:"40min",detail:"Easy riding home"}
+],adjust:"Bad weather? Skip the swim and do 3 hours on the turbo with the same effort structure."},
 {day:"Sun",disc:"run",title:"Long run — with faster block",desc:"First long run with a pace change. Building the ability to run faster when already tired.",duration:100,distance:17,equipment:"Road or park",rpe:"5-6/10",
 structure:[
   {block:"Easy first hour",time:"60min",detail:"5:30-6:10/km throughout. Don't chase pace, just settle in"},
@@ -153,11 +154,12 @@ structure:[
 ],adjust:"If 15 seconds rest isn't enough, take 20. These are meant to be hard but not flat-out."},
 {day:"Sat",disc:"bike",title:"Long ride — biggest of this block",desc:"4 hours on the Trek. If you can, do a 15-20 minute easy open water swim before the ride (lake, lido, or sea) — even short open water sessions build race-day confidence.",duration:240,distance:108,equipment:"Trek road bike",rpe:"6/10",
 structure:[
-  {block:"Build",time:"30min",detail:"Easy start, warm into the ride"},
-  {block:"Main block",time:"160min",detail:"Steady riding with 3 x 12 minutes at 150-163W (harder effort) spread through hours 2 and 3. 5 minutes easy between each"},
-  {block:"Eating & drinking",time:"ongoing",detail:"FULL race nutrition practice: 80g carbs per hour, 600-750ml fluid per hour. If your stomach handles this today, you're sorted for race day. If not, we need to adjust now — not on July 12"},
+  {block:"Morning OW swim",time:"25min",detail:"1000-1500m easy in open water before the ride. Sight every 8-10 strokes. Practice swimming in a straight line. Even 20 minutes in open water is worth more than an hour in the pool for race-day confidence"},
+  {block:"Bike warm-up",time:"30min",detail:"Easy start, warm into the ride"},
+  {block:"Main ride",time:"160min",detail:"Steady riding with 3 x 12 minutes at 150-163W (harder effort) spread through hours 2 and 3. 5 minutes easy between each"},
+  {block:"Eating & drinking",time:"ongoing",detail:"FULL race nutrition practice: 80g carbs per hour, 600-750ml fluid per hour. If your stomach handles this, you're sorted for race day"},
   {block:"Wind down",time:"50min",detail:"Easy riding home"}
-],adjust:"If you're feeling great at 3.5 hours, extend to 4.5. If you're fading, cut it at 3.5. Listen to your body — this is the peak of a 3-week block."},
+],adjust:"No open water? Skip the swim — the ride is the priority. If fading at 3.5 hours, cut the ride short. Listen to your body."},
 {day:"Sun",disc:"run",title:"Long run — Ironman pace block",desc:"Running on yesterday's bike legs. This is what Ironman actually feels like.",duration:110,distance:19,equipment:"Road or park",rpe:"5-6/10",
 structure:[
   {block:"Easy start",time:"70min",detail:"5:30-6:10/km. Let the bike legs loosen up — the first 20 minutes might feel rough, that's completely normal"},
@@ -218,12 +220,13 @@ structure:[
   {block:"Main block",time:"180min",detail:"Steady riding with 3 x 15 minutes at your race effort (125-137W, or updated from test). Full nutrition: 80g carbs per hour. Try to hold an aero position during the harder 15-minute blocks"},
   {block:"Wind down",time:"60min",detail:"Easy riding home"}
 ],adjust:"Bad weather? 4 hours on turbo with same structure."},
-{day:"Sun",disc:"run",title:"Long run — half marathon distance",desc:"First 21km run in the plan. You've done this before — sub-2 hours fresh. Today is about pacing off tired legs.",duration:120,distance:21,equipment:"Road",rpe:"5-6/10",
+{day:"Sun",disc:"run",title:"Morning OW swim + long run",desc:"Double session day. Morning: 20-minute open water swim. Then later: first 21km run in the plan.",duration:140,distance:21,equipment:"Open water + Road",rpe:"5-6/10",
 structure:[
+  {block:"Morning OW swim",time:"20min",detail:"800-1000m easy in open water. Relaxed, just getting time in open water. Practice sighting. If no open water, skip this"},
   {block:"Easy first half",time:"75min",detail:"5:30-6:10/km. Don't chase pace. Just settle in"},
   {block:"Ironman pace",time:"35min",detail:"Pick up to 5:40-6:00/km. Hold it steady. Walk briefly at 15km if you need to"},
   {block:"Wind down",time:"10min",detail:"Easy jog then walk. Gels at 40, 80, and 100 minutes"}
-],adjust:"You're running half marathon distance off Saturday's big ride. If your legs aren't there, run 90 minutes easy instead. The distance will come."}
+],adjust:"No open water? Skip the swim. If legs aren't there for the run, do 90 minutes easy instead."}
 ]},
 // ═══ WEEK 6 (11hrs) ═══
 {week:6,phase:"Build II",hrs:11,days:[
@@ -253,12 +256,13 @@ structure:[
   {block:"Main set",time:"38min",detail:"3 x 800m at a firm, comfortable pace (2:00-2:05 per 100m). 1 minute rest between each. Every 200m, lift your head for 3 strokes to look forward — this is called sighting, and it's how you navigate in open water. It costs a bit of speed, so practise until it feels automatic"},
   {block:"Wind down",time:"8min",detail:"200m easy"}
 ],adjust:null},
-{day:"Sat",disc:"bike",title:"Long ride — biggest of Build II",desc:"5 hours on the Trek. If you can get an early morning open water swim in before (even 15-20 minutes), do it — the more time in open water before race day, the better.",duration:300,distance:138,equipment:"Trek road bike",rpe:"6/10",
+{day:"Sat",disc:"bike",title:"Morning OW swim + biggest ride of Build II",desc:"Double session. Morning: open water swim. Afternoon: 5 hours on the Trek — biggest ride of this block.",duration:325,distance:138,equipment:"Open water + Trek road bike",rpe:"6/10",
 structure:[
+  {block:"Morning OW swim",time:"25min",detail:"1000-1500m easy open water. Sight every 8-10 strokes. Practice breathing to both sides. The more open water sessions before race day, the more natural it'll feel"},
   {block:"Build",time:"30min",detail:"Easy start"},
   {block:"Main block",time:"210min",detail:"Steady effort with 4 x 12 minutes harder (150-163W) in hours 2-4. Full race nutrition: 80g carbs per hour. Routes with some hills are good if possible"},
   {block:"Wind down",time:"60min",detail:"Easy riding home"}
-],adjust:"The heavy legs in hour 4 are the point — this is mental training as much as physical."},
+],adjust:"No open water? Skip the swim — the ride is the priority. Heavy legs in hour 4 are mental training."},
 {day:"Sun",disc:"run",title:"Long run — start slow, finish faster",desc:"Practising the race-day strategy: get faster as you go, not slower.",duration:130,distance:23,equipment:"Road",rpe:"6/10",
 structure:[
   {block:"Easy start",time:"70min",detail:"Start at 5:50/km. Nice and comfortable"},
@@ -292,12 +296,13 @@ structure:[
   {block:"Strength",time:"25min",detail:"Squats: 3 sets of 6 at a heavier weight than Week 2. Romanian deadlifts: 3 sets of 8. Cable rows: 3 sets of 10"},
   {block:"Core",time:"10min",detail:"Core circuit plus hip stretching"}
 ],adjust:null},
-{day:"Sat",disc:"bike",title:"Long ride — longest of the plan",desc:"5.5 hours on the Trek. Your longest ride. If you get to 5 hours feeling in control, race day is within reach.",duration:330,distance:150,equipment:"Trek road bike",rpe:"6/10",
+{day:"Sat",disc:"bike",title:"Morning OW swim + longest ride",desc:"Double session. Morning: 25-minute open water swim. Then your longest ride — 5.5 hours on the Trek.",duration:360,distance:150,equipment:"Open water + Trek road bike",rpe:"6/10",
 structure:[
-  {block:"Build",time:"30min",detail:"Easy start"},
-  {block:"Main block",time:"240min",detail:"Steady effort with 3 x 18 minutes at race effort (125-137W) in hours 2-4. Full race nutrition: 80g carbs/hr. This ride is about executing everything — nutrition, pacing, aero position, and mental strategies for when it gets hard at hour 4-5"},
+  {block:"Morning OW swim",time:"25min",detail:"1000-1500m easy open water. Sight every 8-10 strokes. On race day you swim 3.8km in open water then get straight on the bike — today is a mini version of that"},
+  {block:"Bike build",time:"30min",detail:"Easy start"},
+  {block:"Main ride",time:"240min",detail:"Steady effort with 3 x 18 minutes at race effort (125-137W) in hours 2-4. Full race nutrition: 80g carbs/hr. This ride is about executing everything — nutrition, pacing, aero position, mental strategies"},
   {block:"Wind down",time:"60min",detail:"Easy home"}
-],adjust:"This ride proves you can handle the bike distance. The hardest part is mental after hour 4 — have a plan for when it gets tough."},
+],adjust:"No open water? Skip the swim — the ride is the priority today."},
 {day:"Sun",disc:"run",title:"Long run — marathon rehearsal",desc:"Longest run of the plan. Everything you'll use on July 12, use it today.",duration:140,distance:25,equipment:"Road",rpe:"6/10",
 structure:[
   {block:"Easy",time:"80min",detail:"5:30-6:10/km"},
@@ -343,14 +348,18 @@ structure:[
   {block:"Main",time:"30min",detail:"10 x 100m at a fast effort (1:48-1:55 per 100m — harder than race pace). 15 seconds rest between each. Hold your technique even when tired"},
   {block:"Wind down",time:"8min",detail:"300m easy"}
 ],adjust:null},
-{day:"Sat",disc:"bike",title:"Longest ride — 6 hours",desc:"Your biggest ride ever. Get an early open water swim in before if possible (20 minutes, easy). This proves 180km is within you.",duration:360,distance:168,equipment:"Trek road bike",rpe:"6/10",
-structure:[{block:"Full ride",time:"360min",detail:"Steady effort with 4 x 18 minutes at race power spread through hours 2-5. Full race nutrition. Mentally rehearse everything — the flat sections, the hills, the headwind, the dark patch at hour 5 when you'll want to stop. You won't stop."}],adjust:null},
-{day:"Sun",disc:"run",title:"Long run on tired legs",desc:"Running on yesterday's 6-hour ride legs. This is the closest thing to race day you'll experience in training.",duration:150,distance:26,equipment:"Road",rpe:"6-7/10",
+{day:"Sat",disc:"bike",title:"Morning OW swim + longest ride (6hrs)",desc:"Double session. Morning: open water swim. Then your biggest ride ever — 6 hours. This proves 180km is within you.",duration:380,distance:168,equipment:"Open water + Trek road bike",rpe:"6/10",
 structure:[
-  {block:"Easy",time:"90min",detail:"5:30-6:10/km. Your legs will feel like concrete at first — completely normal. They loosen up around 20-30 minutes"},
+  {block:"Morning OW swim",time:"20min",detail:"800-1000m easy open water. Keep it short — the 6-hour ride is the main event. But getting in the water first simulates race morning"},
+  {block:"Full ride",time:"360min",detail:"Steady effort with 4 x 18 minutes at race power spread through hours 2-5. Full race nutrition. Mentally rehearse everything — the flat sections, the hills, the headwind, the dark patch at hour 5 when you'll want to stop. You won't stop."}
+],adjust:"No open water? Skip the swim — the ride is everything today."},
+{day:"Sun",disc:"run",title:"Morning OW swim + long run on tired legs",desc:"Triple-sport day. Morning: open water swim. Then run on yesterday's 6-hour ride legs. This is the closest thing to race day you'll experience.",duration:170,distance:26,equipment:"Open water + Road",rpe:"6-7/10",
+structure:[
+  {block:"Morning OW swim",time:"20min",detail:"800-1000m easy open water. This simulates race day: swim then run off tired legs. Even a short swim adds to the simulation"},
+  {block:"Easy running",time:"90min",detail:"5:30-6:10/km. Your legs will feel like concrete at first — completely normal. They loosen up around 20-30 minutes"},
   {block:"Ironman pace",time:"45min",detail:"5:40-6:00/km. This is the race-day simulation"},
   {block:"Wind down",time:"15min",detail:"Easy jog and walk"}
-],adjust:null}
+],adjust:"No open water? Just do the run — that's the main session today."}
 ]},
 // ═══ WEEK 10 — Half-Distance Test (9hrs) ═══
 {week:10,phase:"Race-specific",hrs:9,days:[
@@ -384,8 +393,11 @@ structure:[{block:"Session",time:"150min",detail:"30 minutes warm-up, then 3 x 2
 structure:[{block:"Session",time:"60min",detail:"15 minutes warm-up. Then 35 minutes getting progressively faster: 12 minutes at 5:40/km, 12 minutes at 5:25/km, 11 minutes at 5:10/km. 10 minutes easy wind down."}],adjust:null},
 {day:"Fri",disc:"swim",title:"Light swim",desc:"Easy session to stay sharp.",duration:45,distance:1.5,equipment:"Pool",rpe:"5/10",
 structure:[{block:"Session",time:"45min",detail:"300m warm-up. 8 x 75m at a firm effort with 15 seconds rest. 400m easy swimming. 200m wind down."}],adjust:null},
-{day:"Sat",disc:"bike",title:"Last long ride",desc:"5 hours. Your final big ride. After today, the distance never comes back. Execute with precision.",duration:300,distance:140,equipment:"Trek road bike",rpe:"6/10",
-structure:[{block:"Session",time:"300min",detail:"Steady effort with 3 x 18 minutes at race power in hours 2-4. Full race nutrition. This is your final bike dress rehearsal."}],adjust:null},
+{day:"Sat",disc:"bike",title:"Morning OW swim + last long ride",desc:"Double session. Morning OW swim then your final big ride — 5 hours. After today, the big volume never comes back.",duration:325,distance:140,equipment:"Open water + Trek road bike",rpe:"6/10",
+structure:[
+  {block:"Morning OW swim",time:"25min",detail:"1000-1500m easy open water. Last proper OW swim before taper. Sight every 8 strokes, practice bilateral breathing. Enjoy it — you're a much stronger swimmer than you were 10 weeks ago"},
+  {block:"Long ride",time:"300min",detail:"Steady effort with 3 x 18 minutes at race power in hours 2-4. Full race nutrition. This is your final bike dress rehearsal"}
+],adjust:"No open water? Skip the swim — the ride is the priority."},
 {day:"Sun",disc:"run",title:"Last long run — then France",desc:"Final big run before the France holiday. Full dress rehearsal — race shoes, race belt, race nutrition. You fly out to France today or tomorrow.",duration:135,distance:23.5,equipment:"Road",rpe:"6/10",
 structure:[{block:"Session",time:"135min",detail:"80 minutes easy, 40 minutes at Ironman pace (5:40-6:00/km), 15 minutes easy wind down. The hay is in the barn after this one."}],adjust:null}
 ]},
