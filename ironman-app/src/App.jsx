@@ -12,7 +12,7 @@ const A = {
 };
 
 const RACE = new Date(2026,6,12);
-const DC = {swim:"#4ECDC4",bike:"#E8B44A",run:"#E8637A",strength:"#B68AE8",brick:"#6DC8A8",rest:"#555"};
+const DC = {swim:"#4ECDC4",bike:"#E8B44A",run:"#FF5577",strength:"#B68AE8",brick:"#6DC8A8",rest:"#555"};
 const DI = {swim:"🏊",bike:"🚴",run:"🏃",strength:"🏋️",brick:"🔗",rest:"😴"};
 
 const T = {
@@ -763,10 +763,10 @@ export default function App(){
           <YAxis tick={{fontSize:9,fill:T.textDim}} axisLine={false} tickLine={false} width={22}/>
           <Tooltip contentStyle={{fontSize:11,borderRadius:8,background:T.card,border:`1px solid ${T.border}`,color:T.text}} formatter={(v,n)=>{const label=n.replace("planned","Plan: ").replace("actual","Done: ").replace("Bike"," Bike").replace("Run"," Run").replace("Swim"," Swim");return[`${v}km`,label]}}/>
           <Area type="monotone" dataKey="plannedBike" stackId="planned" fill={DC.bike+"18"} stroke={DC.bike+"50"} strokeWidth={1} strokeDasharray="4 3"/>
-          <Area type="monotone" dataKey="plannedRun" stackId="planned" fill={DC.run+"18"} stroke={DC.run+"50"} strokeWidth={1} strokeDasharray="4 3"/>
+          <Area type="monotone" dataKey="plannedRun" stackId="planned" fill={DC.run+"20"} stroke={DC.run+"60"} strokeWidth={1} strokeDasharray="4 3"/>
           <Area type="monotone" dataKey="plannedSwim" stackId="planned" fill={DC.swim+"18"} stroke={DC.swim+"50"} strokeWidth={1} strokeDasharray="4 3"/>
           <Area type="monotone" dataKey="actualBike" stackId="actual" fill={DC.bike+"55"} stroke={DC.bike} strokeWidth={2}/>
-          <Area type="monotone" dataKey="actualRun" stackId="actual" fill={DC.run+"55"} stroke={DC.run} strokeWidth={2}/>
+          <Area type="monotone" dataKey="actualRun" stackId="actual" fill={DC.run+"AA"} stroke={DC.run} strokeWidth={2.5}/>
           <Area type="monotone" dataKey="actualSwim" stackId="actual" fill={DC.swim+"55"} stroke={DC.swim} strokeWidth={2}/>
         </AreaChart></ResponsiveContainer></div>
       </div>
