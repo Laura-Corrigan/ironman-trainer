@@ -589,11 +589,14 @@ export default function App(){
     const tt=w.days.filter(d=>d.disc!=="rest").length;
     const hasActual=dn>0;
     return{name:`W${w.week}`,week:w.week,phase:w.phase,
-      hours:hasActual?Math.round(actualHrs/6)/10:Math.round(plannedHrs/6)/10,
-      swim:hasActual?Math.round(actualSwim*10)/10:Math.round(plannedSwim*10)/10,
-      bike:hasActual?Math.round(actualBike):Math.round(plannedBike),
-      run:hasActual?Math.round(actualRun*10)/10:Math.round(plannedRun*10)/10,
-      planned:{hours:Math.round(plannedHrs/6)/10,swim:Math.round(plannedSwim*10)/10,bike:Math.round(plannedBike),run:Math.round(plannedRun*10)/10},
+      plannedHours:Math.round(plannedHrs/6)/10,
+      actualHours:hasActual?Math.round(actualHrs/6)/10:0,
+      plannedSwim:Math.round(plannedSwim*10)/10,
+      actualSwim:hasActual?Math.round(actualSwim*10)/10:0,
+      plannedBike:Math.round(plannedBike),
+      actualBike:hasActual?Math.round(actualBike):0,
+      plannedRun:Math.round(plannedRun*10)/10,
+      actualRun:hasActual?Math.round(actualRun*10)/10:0,
       compliance:tt>0?Math.round(dn/tt*100):0,hasActual};
   }),[comp,met]);
   const db=useMemo(()=>w?[{n:"Swim",v:ws.swim,c:DC.swim},{n:"Bike",v:ws.bike,c:DC.bike},{n:"Run",v:ws.run,c:DC.run},{n:"Strength",v:ws.strength,c:DC.strength},{n:"Brick",v:ws.brick,c:DC.brick}].filter(d=>d.v>0):[],[w,ws]);
@@ -736,13 +739,36 @@ export default function App(){
 
     {tab==="progress"&&<div style={{padding:"1rem"}}>
       <div style={{...S.card,padding:12,marginBottom:8}}>
-        <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:4}}>Weekly volume (hours)</div>
-        <div style={{height:150}}><ResponsiveContainer><BarChart data={pd} barSize={16}><XAxis dataKey="name" tick={{fontSize:9,fill:T.textDim}} axisLine={false} tickLine={false}/><YAxis tick={{fontSize:9,fill:T.textDim}} axisLine={false} tickLine={false} width={22}/><Tooltip contentStyle={{fontSize:11,borderRadius:8,background:T.card,border:`1px solid ${T.border}`,color:T.text}} formatter={v=>[`${v}hrs`]}/><Bar dataKey="hours" radius={[3,3,0,0]}>{pd.map((d,i)=><Cell key={i} fill={i===cw?T.accent:i<=getCW()?"#9B72E8":"#9B72E833"}/>)}</Bar></BarChart></ResponsiveContainer></div>
+        <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:2}}>Weekly volume (hours)</div>
+        <div style={{display:"flex",gap:10,marginBottom:4,fontSize:10}}>
+          <span style={{display:"flex",alignItems:"center",gap:3}}><span style={{width:7,height:7,borderRadius:2,background:T.accent+"40"}}/>Planned</span>
+          <span style={{display:"flex",alignItems:"center",gap:3}}><span style={{width:7,height:7,borderRadius:2,background:T.accent}}/>Actual</span>
+        </div>
+        <div style={{height:160}}><ResponsiveContainer><BarChart data={pd} barGap={1}>
+          <XAxis dataKey="name" tick={{fontSize:9,fill:T.textDim}} axisLine={false} tickLine={false}/>
+          <YAxis tick={{fontSize:9,fill:T.textDim}} axisLine={false} tickLine={false} width={22}/>
+          <Tooltip contentStyle={{fontSize:11,borderRadius:8,background:T.card,border:`1px solid ${T.border}`,color:T.text}} formatter={(v,n)=>[`${v}hrs`,n==="plannedHours"?"Planned":"Actual"]}/>
+          <Bar dataKey="plannedHours" radius={[3,3,0,0]} fill={T.accent+"30"} barSize={12}/>
+          <Bar dataKey="actualHours" radius={[3,3,0,0]} barSize={12}>{pd.map((d,i)=><Cell key={i} fill={d.hasActual?T.accent:T.accent+"10"}/>)}</Bar>
+        </BarChart></ResponsiveContainer></div>
       </div>
       <div style={{...S.card,padding:12,marginBottom:8}}>
-        <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:2}}>Distance by discipline</div>
-        <div style={{display:"flex",gap:10,marginBottom:4,fontSize:10}}>{[{n:"Bike",c:DC.bike},{n:"Run",c:DC.run},{n:"Swim",c:DC.swim}].map((d,i)=><span key={i} style={{display:"flex",alignItems:"center",gap:3}}><span style={{width:7,height:7,borderRadius:2,background:d.c}}/><span style={{color:T.textMid}}>{d.n}</span></span>)}</div>
-        <div style={{height:150}}><ResponsiveContainer><AreaChart data={pd}><XAxis dataKey="name" tick={{fontSize:9,fill:T.textDim}} axisLine={false} tickLine={false}/><YAxis tick={{fontSize:9,fill:T.textDim}} axisLine={false} tickLine={false} width={22}/><Tooltip contentStyle={{fontSize:11,borderRadius:8,background:T.card,border:`1px solid ${T.border}`,color:T.text}}/><Area type="monotone" dataKey="bike" stackId="1" fill={DC.bike+"33"} stroke={DC.bike} strokeWidth={1.5}/><Area type="monotone" dataKey="run" stackId="1" fill={DC.run+"33"} stroke={DC.run} strokeWidth={1.5}/><Area type="monotone" dataKey="swim" stackId="1" fill={DC.swim+"33"} stroke={DC.swim} strokeWidth={1.5}/></AreaChart></ResponsiveContainer></div>
+        <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:2}}>Distance by discipline (km)</div>
+        <div style={{display:"flex",gap:8,marginBottom:4,fontSize:9,flexWrap:"wrap"}}>
+          {[{n:"Bike",c:DC.bike},{n:"Run",c:DC.run},{n:"Swim",c:DC.swim}].map((d,i)=><span key={i} style={{display:"flex",alignItems:"center",gap:3}}><span style={{width:7,height:7,borderRadius:2,background:d.c}}/><span style={{color:T.textMid}}>{d.n}</span></span>)}
+          <span style={{color:T.textDim,marginLeft:4}}>Solid = actual · Faded = planned</span>
+        </div>
+        <div style={{height:170}}><ResponsiveContainer><AreaChart data={pd}>
+          <XAxis dataKey="name" tick={{fontSize:9,fill:T.textDim}} axisLine={false} tickLine={false}/>
+          <YAxis tick={{fontSize:9,fill:T.textDim}} axisLine={false} tickLine={false} width={22}/>
+          <Tooltip contentStyle={{fontSize:11,borderRadius:8,background:T.card,border:`1px solid ${T.border}`,color:T.text}} formatter={(v,n)=>{const label=n.replace("planned","Plan: ").replace("actual","Done: ").replace("Bike"," Bike").replace("Run"," Run").replace("Swim"," Swim");return[`${v}km`,label]}}/>
+          <Area type="monotone" dataKey="plannedBike" stackId="planned" fill={DC.bike+"18"} stroke={DC.bike+"50"} strokeWidth={1} strokeDasharray="4 3"/>
+          <Area type="monotone" dataKey="plannedRun" stackId="planned" fill={DC.run+"18"} stroke={DC.run+"50"} strokeWidth={1} strokeDasharray="4 3"/>
+          <Area type="monotone" dataKey="plannedSwim" stackId="planned" fill={DC.swim+"18"} stroke={DC.swim+"50"} strokeWidth={1} strokeDasharray="4 3"/>
+          <Area type="monotone" dataKey="actualBike" stackId="actual" fill={DC.bike+"55"} stroke={DC.bike} strokeWidth={2}/>
+          <Area type="monotone" dataKey="actualRun" stackId="actual" fill={DC.run+"55"} stroke={DC.run} strokeWidth={2}/>
+          <Area type="monotone" dataKey="actualSwim" stackId="actual" fill={DC.swim+"55"} stroke={DC.swim} strokeWidth={2}/>
+        </AreaChart></ResponsiveContainer></div>
       </div>
       <div style={{...S.card,padding:12,marginBottom:8}}>
         <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:6}}>Compliance</div>
