@@ -562,7 +562,40 @@ export default function App(){
   const tog=useCallback((wi,di)=>{const k=`${wi}-${di}`;setComp(p=>{const n={...p};n[k]?delete n[k]:n[k]=Date.now();return n})},[]);
   const w=PLAN[cw];const tc=Object.keys(comp).length;const tw=PLAN.reduce((a,w)=>a+w.days.filter(d=>d.disc!=="rest").length,0);
   const ws=useMemo(()=>{if(!w)return{};const s={swim:0,bike:0,run:0,strength:0,brick:0,tMin:0,tDist:0,done:0,total:0};w.days.forEach((d,i)=>{if(d.disc==="rest")return;s.total++;s.tMin+=d.duration||0;s.tDist+=d.distance||0;if(d.disc in s)s[d.disc]+=d.duration||0;if(comp[`${cw}-${i}`])s.done++});return s},[w,cw,comp]);
-  const pd=useMemo(()=>PLAN.map((w,i)=>{let sw=0,bk=0,rn=0,tm=0;w.days.forEach(d=>{tm+=d.duration||0;if(d.disc==="swim")sw+=d.distance||0;if(d.disc==="bike")bk+=d.distance||0;if(d.disc==="run")rn+=d.distance||0});const dn=w.days.filter((_,di)=>comp[`${i}-${di}`]).length;const tt=w.days.filter(d=>d.disc!=="rest").length;return{name:`W${w.week}`,week:w.week,phase:w.phase,hours:Math.round(tm/6)/10,swim:Math.round(sw*10)/10,bike:Math.round(bk),run:Math.round(rn*10)/10,compliance:tt>0?Math.round(dn/tt*100):0}}),[comp]);
+  const pd=useMemo(()=>PLAN.map((w,i)=>{
+    let actualHrs=0,actualSwim=0,actualBike=0,actualRun=0;
+    let plannedHrs=0,plannedSwim=0,plannedBike=0,plannedRun=0;
+    w.days.forEach((d,di)=>{
+      plannedHrs+=d.duration||0;
+      if(d.disc==="swim")plannedSwim+=d.distance||0;
+      if(d.disc==="bike")plannedBike+=d.distance||0;
+      if(d.disc==="run")plannedRun+=d.distance||0;
+      // Use actual logged metrics if workout is completed
+      const m=met[`${i}-${di}`];
+      const done=!!comp[`${i}-${di}`];
+      if(done&&m){
+        actualHrs+=parseFloat(m.dur)||d.duration||0;
+        if(d.disc==="swim")actualSwim+=parseFloat(m.dist)||d.distance||0;
+        if(d.disc==="bike"||d.disc==="brick")actualBike+=parseFloat(m.dist)||d.distance||0;
+        if(d.disc==="run")actualRun+=parseFloat(m.dist)||d.distance||0;
+      }else if(done){
+        actualHrs+=d.duration||0;
+        if(d.disc==="swim")actualSwim+=d.distance||0;
+        if(d.disc==="bike")actualBike+=d.distance||0;
+        if(d.disc==="run")actualRun+=d.distance||0;
+      }
+    });
+    const dn=w.days.filter((_,di)=>comp[`${i}-${di}`]).length;
+    const tt=w.days.filter(d=>d.disc!=="rest").length;
+    const hasActual=dn>0;
+    return{name:`W${w.week}`,week:w.week,phase:w.phase,
+      hours:hasActual?Math.round(actualHrs/6)/10:Math.round(plannedHrs/6)/10,
+      swim:hasActual?Math.round(actualSwim*10)/10:Math.round(plannedSwim*10)/10,
+      bike:hasActual?Math.round(actualBike):Math.round(plannedBike),
+      run:hasActual?Math.round(actualRun*10)/10:Math.round(plannedRun*10)/10,
+      planned:{hours:Math.round(plannedHrs/6)/10,swim:Math.round(plannedSwim*10)/10,bike:Math.round(plannedBike),run:Math.round(plannedRun*10)/10},
+      compliance:tt>0?Math.round(dn/tt*100):0,hasActual};
+  }),[comp,met]);
   const db=useMemo(()=>w?[{n:"Swim",v:ws.swim,c:DC.swim},{n:"Bike",v:ws.bike,c:DC.bike},{n:"Run",v:ws.run,c:DC.run},{n:"Strength",v:ws.strength,c:DC.strength},{n:"Brick",v:ws.brick,c:DC.brick}].filter(d=>d.v>0):[],[w,ws]);
   const pc={"Build I":"#8B6AD8","Build II":"#B68AE8","Race-specific":"#6DC84E","Absorb":"#5A5566","Taper":"#C9A0FF","Race week":"#E85454"};
   const weekRPE=useMemo(()=>{const vals=w?.days.map((_,di)=>rpe[`${cw}-${di}`]).filter(Boolean).map(Number)||[];return vals.length?Math.round(vals.reduce((a,b)=>a+b,0)/vals.length*10)/10:null},[w,cw,rpe]);
@@ -719,10 +752,10 @@ export default function App(){
         <div style={{fontSize:10,fontWeight:500,color:T.textMid,marginBottom:6}}>Race day targets</div>
         {(()=>{
           const sp=zones.swim.paceSec;const swimMin=Math.round(3800/100*sp/60);const swimH=Math.floor(swimMin/60);const swimM=swimMin%60;
-          const rw=zones.bike.race;const bikeMin=Math.round(180/(rw[0]+rw[1])*2*60);const bikeH=Math.floor(bikeMin/60);const bikeM=bikeMin%60;
+          const rw=zones.bike.race;const avgW=(rw[0]+rw[1])/2;const speedKmh=12+avgW*0.14;const bikeMin=Math.round(180/speedKmh*60);const bikeH=Math.floor(bikeMin/60);const bikeM=bikeMin%60;
           return [{l:"Swim 3.8km",t:`${swimH}:${String(swimM).padStart(2,"0")}`,p:`${zones.swim.pace}/100m`},{l:"T1",t:"5:00"},{l:"Bike 180km",t:`${bikeH}:${String(bikeM).padStart(2,"0")}`,p:`${rw[0]}-${rw[1]}W avg`},{l:"T2",t:"4:00"},{l:"Run 42.2km",t:A.proj.run.t,p:A.proj.run.p}];
         })().map((r,i)=>(<div key={i} style={{display:"flex",justifyContent:"space-between",padding:"4px 0",borderBottom:i<4?`1px solid ${T.borderLight}`:"none",fontSize:12}}><span style={{fontWeight:500}}>{r.l}</span><span style={{color:T.textMid,textAlign:"right"}}>{r.t}{r.p&&<span style={{fontSize:10,color:T.textDim,display:"block"}}>{r.p}</span>}</span></div>))}
-        <div style={{display:"flex",justifyContent:"space-between",marginTop:8,paddingTop:8,borderTop:`1.5px solid ${T.border}`,fontSize:14,fontWeight:500}}><span>Target</span><span style={{color:T.accent}}>{(()=>{const sp=zones.swim.paceSec;const s=Math.round(3800/100*sp/60);const rw=zones.bike.race;const b=Math.round(180/((rw[0]+rw[1])/2)*60);const r=265;const t=s+5+b+4+r;const h=Math.floor(t/60);const m=t%60;return `${h}:${String(m).padStart(2,"0")}`;})()}</span></div>
+        <div style={{display:"flex",justifyContent:"space-between",marginTop:8,paddingTop:8,borderTop:`1.5px solid ${T.border}`,fontSize:14,fontWeight:500}}><span>Target</span><span style={{color:T.accent}}>{(()=>{const sp=zones.swim.paceSec;const s=Math.round(3800/100*sp/60);const rw=zones.bike.race;const avgW2=(rw[0]+rw[1])/2;const spd2=12+avgW2*0.14;const b=Math.round(180/spd2*60);const r=265;const t=s+5+b+4+r;const h=Math.floor(t/60);const m=t%60;return `${h}:${String(m).padStart(2,"0")}`;})()}</span></div>
       </div>
     </div>}
 
